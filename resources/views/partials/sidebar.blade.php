@@ -12,6 +12,9 @@
     @can('farm-categories.view')
         <a class="list-group-item list-group-item-action {{ request()->routeIs('farm-categories.*') ? 'active' : '' }}" href="{{ route('farm-categories.index') }}">{{ __('modules.farm_categories') }}</a>
     @endcan
+    @can('farm-varieties.view')
+        <a class="list-group-item list-group-item-action {{ request()->routeIs('farm-varieties.*') ? 'active' : '' }}" href="{{ route('farm-varieties.index') }}">{{ __('modules.farm_varieties') }}</a>
+    @endcan
     @can('batches.view')
         <a class="list-group-item list-group-item-action" href="{{ route('coming-soon', 'batches') }}">{{ __('modules.batches') }}</a>
     @endcan

@@ -6,6 +6,7 @@ return [
     'farms' => 'ফার্ম',
     'sheds' => 'শেড',
     'farm_categories' => 'ফার্ম ক্যাটাগরি',
+    'farm_varieties' => 'জাত ও প্রজাতি',
     'batches' => 'ব্যাচ',
     'daily_records' => 'দৈনিক রেকর্ড',
     'feed' => 'ফিড',

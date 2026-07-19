@@ -13,6 +13,8 @@ FarmHisab is being built in planned steps so the foundation stays clean and each
 - Step 3D-2: Existing CRUD pages localized into Bengali and English for Users, Farms, Sheds, and Farm Categories.
 - Step 3D-3: Dynamic bilingual Farm Category fields with locale-aware display accessors.
 - Step 3D-4: Coming Soon pages, breadcrumbs, and remaining navigation labels localized through safe module mappings.
+- Step 3E-1: Dynamic Farm Variety Management for breeds, species, strains, and varieties under child farm categories.
+- Step 3E-2: Default bilingual Farm Variety seed data.
 
 ## Planned Modules
 
@@ -24,7 +26,8 @@ FarmHisab is being built in planned steps so the foundation stays clean and each
 - Existing CRUD pages localization
 - Dynamic bilingual farm categories
 - Coming Soon and navigation localization cleanup
-- Breed and species management
+- Dynamic farm variety management
+- Default farm variety seed data
 - Batch management
 - Daily farm records
 - Mortality tracking

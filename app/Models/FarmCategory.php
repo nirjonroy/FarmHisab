@@ -42,6 +42,11 @@ class FarmCategory extends Model
         return $this->hasMany(self::class, 'parent_id');
     }
 
+    public function varieties(): HasMany
+    {
+        return $this->hasMany(FarmVariety::class, 'farm_category_id');
+    }
+
     public function createdBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by');

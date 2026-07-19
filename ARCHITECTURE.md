@@ -26,6 +26,8 @@ Existing module labels for Users, Farms, Sheds, and Farm Categories use module l
 
 Farm Category records support dynamic bilingual fields: `name_en`, `name_bn`, `description_en`, and `description_bn`. The UI reads `$category->display_name` and `$category->display_description` based on the active locale. The original `name` and `description` fields remain temporarily for backward compatibility while the category module transitions to bilingual data.
 
+Farm Category represents the farming type hierarchy, such as Poultry -> Broiler or Aquaculture -> Fish. Farm Variety represents the breed, species, strain, or variety within a child category, such as Cobb 500 under Broiler or Tilapia under Fish. A Farm Variety belongs to one child Farm Category; top-level categories do not directly contain varieties.
+
 Static interface text and dynamic database records are separate translation concerns:
 
 - Static interface text belongs in Laravel language files.

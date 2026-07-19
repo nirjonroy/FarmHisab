@@ -205,6 +205,10 @@ Manager receives:
 - `dashboard.view`
 - `farms.view`
 - `farms.manage`
+- `farm-categories.view`
+- `farm-categories.manage`
+- `farm-varieties.view`
+- `farm-varieties.manage`
 - `batches.view`
 - `batches.manage`
 - `daily-records.view`
@@ -234,6 +238,8 @@ Manager receives:
 Worker receives:
 
 - `dashboard.view`
+- `farm-categories.view`
+- `farm-varieties.view`
 - `batches.view`
 - `daily-records.view`
 - `daily-records.create`
@@ -366,6 +372,34 @@ Run category tests:
 
 ```bash
 php artisan test --filter=FarmCategoryManagementTest
+```
+
+## Farm Variety Management
+
+Step 3E-1 adds dynamic Farm Variety Management for breeds, species, strains, and varieties under child Farm Categories. Examples include Cobb 500 under Broiler, Black Bengal under Goat, and Tilapia under Fish.
+
+Farm variety web routes:
+
+- `farm-varieties.index` - variety list, search, category/parent/status filters, requires `farm-varieties.view`
+- `farm-varieties.create` - create form, requires `farm-varieties.manage`
+- `farm-varieties.store` - save new variety, requires `farm-varieties.manage`
+- `farm-varieties.edit` - edit form, requires `farm-varieties.manage`
+- `farm-varieties.update` - update variety, requires `farm-varieties.manage`
+
+Manager receives `farm-varieties.view` and `farm-varieties.manage`. Worker receives `farm-varieties.view`.
+
+Seed default bilingual farm varieties:
+
+```bash
+php artisan db:seed --class=FarmVarietySeeder
+```
+
+Seeded records can later be edited from the Farm Variety management page.
+
+Run variety tests:
+
+```bash
+php artisan test --filter=FarmVarietyManagementTest
 ```
 
 ## Android API

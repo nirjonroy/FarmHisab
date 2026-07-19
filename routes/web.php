@@ -9,6 +9,7 @@ use App\Http\Controllers\ComingSoonController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FarmCategoryController;
 use App\Http\Controllers\FarmController;
+use App\Http\Controllers\FarmVarietyController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ShedController;
 use Illuminate\Support\Facades\Route;
@@ -72,6 +73,14 @@ Route::middleware('auth')->group(function () {
         Route::post('/', [FarmCategoryController::class, 'store'])->middleware('permission:farm-categories.manage')->name('store');
         Route::get('/{farmCategory}/edit', [FarmCategoryController::class, 'edit'])->middleware('permission:farm-categories.manage')->name('edit');
         Route::put('/{farmCategory}', [FarmCategoryController::class, 'update'])->middleware('permission:farm-categories.manage')->name('update');
+    });
+
+    Route::prefix('farm-varieties')->name('farm-varieties.')->group(function () {
+        Route::get('/', [FarmVarietyController::class, 'index'])->middleware('permission:farm-varieties.view')->name('index');
+        Route::get('/create', [FarmVarietyController::class, 'create'])->middleware('permission:farm-varieties.manage')->name('create');
+        Route::post('/', [FarmVarietyController::class, 'store'])->middleware('permission:farm-varieties.manage')->name('store');
+        Route::get('/{farmVariety}/edit', [FarmVarietyController::class, 'edit'])->middleware('permission:farm-varieties.manage')->name('edit');
+        Route::put('/{farmVariety}', [FarmVarietyController::class, 'update'])->middleware('permission:farm-varieties.manage')->name('update');
     });
 
     Route::prefix('admin')->name('admin.')->middleware('permission:users.view')->group(function () {

@@ -61,6 +61,11 @@ class User extends Authenticatable
         return $this->hasMany(FarmCategory::class, 'created_by');
     }
 
+    public function createdFarmVarieties(): HasMany
+    {
+        return $this->hasMany(FarmVariety::class, 'created_by');
+    }
+
     public function setLocaleAttribute(?string $value): void
     {
         $supportedLocales = config('localization.supported_locales', ['bn', 'en']);
