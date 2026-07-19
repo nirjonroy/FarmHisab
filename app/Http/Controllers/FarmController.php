@@ -45,7 +45,7 @@ class FarmController extends Controller
             'created_by' => $request->user()->id,
         ]);
 
-        return redirect()->route('farms.index')->with('success', 'Farm created successfully.');
+        return redirect()->route('farms.index')->with('success', __('messages.farm_created'));
     }
 
     public function edit(Farm $farm): View
@@ -57,7 +57,7 @@ class FarmController extends Controller
     {
         $farm->update($this->payload($request->validated()));
 
-        return redirect()->route('farms.index')->with('success', 'Farm updated successfully.');
+        return redirect()->route('farms.index')->with('success', __('messages.farm_updated'));
     }
 
     private function payload(array $data): array

@@ -59,7 +59,7 @@ class ShedController extends Controller
             'created_by' => $request->user()->id,
         ]);
 
-        return redirect()->route('sheds.index')->with('success', 'Shed created successfully.');
+        return redirect()->route('sheds.index')->with('success', __('messages.shed_created'));
     }
 
     public function edit(Shed $shed): View
@@ -77,7 +77,7 @@ class ShedController extends Controller
     {
         $shed->update($this->payload($request->validated()));
 
-        return redirect()->route('sheds.index')->with('success', 'Shed updated successfully.');
+        return redirect()->route('sheds.index')->with('success', __('messages.shed_updated'));
     }
 
     private function payload(array $data): array

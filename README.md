@@ -27,6 +27,9 @@ php artisan key:generate
 Configure MySQL in `.env`:
 
 ```env
+APP_LOCALE=bn
+APP_FALLBACK_LOCALE=en
+
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
@@ -103,6 +106,48 @@ FarmHisab includes manual Laravel web authentication using Blade and Bootstrap 5
 - inactive-user login blocking
 
 New self-registered users receive the `worker` role after role seeding exists.
+
+## Localization
+
+FarmHisab supports exactly two interface languages:
+
+- `bn` - বাংলা
+- `en` - English
+
+The default locale is `bn`, and the fallback locale is `en`. Configure these values in `.env`:
+
+```env
+APP_LOCALE=bn
+APP_FALLBACK_LOCALE=en
+```
+
+Static interface text uses Laravel language files in `lang/{locale}`. Add new keys to the matching file and use them in Blade or PHP with:
+
+```php
+__('file.key')
+```
+
+Examples:
+
+```php
+__('navigation.dashboard')
+__('common.save')
+__('dashboard.active_batches')
+```
+
+Locale preference is stored in the session for guests. For authenticated users, it is also stored in `users.locale`.
+
+Dynamic database records should not use language files. Future translated data should use separate fields such as `name_en`, `name_bn`, `description_en`, and `description_bn`. Future Android APIs may return those fields plus a `display_name` based on the requested locale.
+
+Language route:
+
+- `language.switch` - `POST /language/{locale}`
+
+Run localization tests with:
+
+```bash
+php artisan test --filter=LocalizationTest
+```
 
 ## Roles vs Permissions
 

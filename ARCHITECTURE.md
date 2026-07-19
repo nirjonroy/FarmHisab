@@ -16,6 +16,19 @@ Farm setup data supports multiple farm domains, not only poultry. `farm_categori
 
 Blade renders the web dashboard. Bootstrap 5 is installed through Vite, and vanilla JavaScript is used through the existing Vite entrypoint. No Tailwind, React, Vue, Livewire, or Inertia stack is used.
 
+## Localization
+
+FarmHisab supports Bengali (`bn`) and English (`en`) for static interface text. Bengali is the default locale and English is the fallback locale. Static labels, navigation, authentication text, dashboard labels, and shared messages should use Laravel language files with keys such as `__('navigation.dashboard')` or `__('common.save')`.
+
+Locale is resolved for web requests from the authenticated user's saved `users.locale` value, then the session `locale`, then the configured default locale. The language switch route writes the selected locale to the session and, for authenticated users, to `users.locale`.
+
+Static interface text and dynamic database records are separate translation concerns:
+
+- Static interface text belongs in Laravel language files.
+- Dynamic database records should later use separate bilingual fields such as `name_en`, `name_bn`, `description_en`, and `description_bn`.
+
+Future Android APIs may return both stored values, such as `name_en` and `name_bn`, plus a computed `display_name` based on the requested locale. These dynamic bilingual database fields are not implemented yet.
+
 ## Authentication
 
 Web authentication uses Laravel sessions, CSRF protection, password hashing, guest/auth middleware, session regeneration after login, and standard password reset brokers.
@@ -62,4 +75,4 @@ User management uses `App\Services\UserService` for transaction-backed multi-ste
 
 Web routes belong in `routes/web.php` and return Blade views or redirects. API routes belong in `routes/api.php` and return JSON responses.
 
-Android API authorization will later reuse the same permission model with Sanctum tokens. No Android business API endpoints are created in Step 2.
+Android API authorization will later reuse the same permission model with Sanctum tokens. No Android business API endpoints are created yet.

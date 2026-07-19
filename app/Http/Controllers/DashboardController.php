@@ -10,12 +10,12 @@ class DashboardController extends Controller
     {
         return view('dashboard.index', [
             'metrics' => [
-                'Active batches' => '0',
-                'Total birds' => '0',
-                'Feed stock' => '0 bags',
-                'Current investment' => 'Tk0',
-                'Estimated profit' => 'Tk0',
-                "Today's mortality" => '0',
+                'dashboard.active_batches' => '0',
+                'dashboard.total_birds' => '0',
+                'dashboard.feed_stock' => '0 bags',
+                'dashboard.current_investment' => 'Tk0',
+                'dashboard.estimated_profit' => 'Tk0',
+                'dashboard.todays_mortality' => '0',
             ],
         ]);
     }

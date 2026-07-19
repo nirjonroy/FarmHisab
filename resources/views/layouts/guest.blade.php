@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ config('app.name', 'FarmHisab') }}</title>
+    <title>{{ __('common.app_name') }}</title>
     @vite('resources/js/app.js')
 </head>
 <body>
@@ -13,8 +13,11 @@
                 <div class="col-md-8 col-lg-5">
                     <div class="text-center mb-4">
                         <a href="{{ url('/') }}" class="text-decoration-none">
-                            <span class="fs-3 fw-bold text-success">FarmHisab</span>
+                            <span class="fs-3 fw-bold text-success">{{ __('common.app_name') }}</span>
                         </a>
+                        <div class="d-flex justify-content-center mt-3">
+                            @include('partials.language-switcher')
+                        </div>
                     </div>
                     @include('partials.flash-messages')
                     <div class="card border-0 shadow-sm">

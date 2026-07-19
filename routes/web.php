@@ -9,6 +9,7 @@ use App\Http\Controllers\ComingSoonController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FarmCategoryController;
 use App\Http\Controllers\FarmController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ShedController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/language/{locale}', LanguageController::class)->name('language.switch');
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('login');

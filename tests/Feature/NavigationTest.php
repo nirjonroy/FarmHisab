@@ -20,7 +20,7 @@ class NavigationTest extends TestCase
 
     public function test_admin_sees_admin_navigation(): void
     {
-        $user = User::factory()->create();
+        $user = User::factory()->create(['locale' => 'en']);
         $user->syncRoles('admin');
 
         $this->actingAs($user)->get(route('dashboard'))
@@ -31,7 +31,7 @@ class NavigationTest extends TestCase
 
     public function test_manager_sees_manager_authorized_navigation(): void
     {
-        $user = User::factory()->create();
+        $user = User::factory()->create(['locale' => 'en']);
         $user->syncRoles('manager');
 
         $this->actingAs($user)->get(route('dashboard'))
@@ -43,7 +43,7 @@ class NavigationTest extends TestCase
 
     public function test_worker_sees_worker_authorized_navigation(): void
     {
-        $user = User::factory()->create();
+        $user = User::factory()->create(['locale' => 'en']);
         $user->syncRoles('worker');
 
         $this->actingAs($user)->get(route('dashboard'))

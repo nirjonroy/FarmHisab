@@ -47,7 +47,7 @@ class LoginRequest extends FormRequest
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'email' => 'This account is inactive. Contact an administrator.',
+                'email' => __('messages.account_inactive'),
             ]);
         }
 

@@ -3,9 +3,12 @@
         <button class="btn btn-success d-lg-none me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar" aria-controls="mobileSidebar">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand fw-bold" href="{{ route('dashboard') }}">FarmHisab</a>
+        <a class="navbar-brand fw-bold" href="{{ route('dashboard') }}">{{ __('common.app_name') }}</a>
 
-        <div class="dropdown ms-auto">
+        <div class="d-flex align-items-center gap-2 ms-auto">
+            @include('partials.language-switcher', ['buttonClass' => 'btn-success'])
+
+            <div class="dropdown">
             <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 {{ auth()->user()->name }}
             </button>
@@ -15,10 +18,11 @@
                 <li>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <button type="submit" class="dropdown-item">Logout</button>
+                        <button type="submit" class="dropdown-item">{{ __('navigation.logout') }}</button>
                     </form>
                 </li>
             </ul>
+            </div>
         </div>
     </div>
 </nav>

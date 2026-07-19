@@ -23,6 +23,7 @@ class User extends Authenticatable
         'email',
         'password',
         'is_active',
+        'locale',
     ];
 
     /**
@@ -58,5 +59,15 @@ class User extends Authenticatable
     public function createdFarmCategories(): HasMany
     {
         return $this->hasMany(FarmCategory::class, 'created_by');
+    }
+
+    public function setLocaleAttribute(?string $value): void
+    {
+        $supportedLocales = config('localization.supported_locales', ['bn', 'en']);
+        $defaultLocale = config('localization.default_locale', 'bn');
+
+        $this->attributes['locale'] = in_array($value, $supportedLocales, true)
+            ? $value
+            : $defaultLocale;
     }
 }
