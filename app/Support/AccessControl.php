@@ -1,0 +1,100 @@
+<?php
+
+namespace App\Support;
+
+final class AccessControl
+{
+    public const ROLE_ADMIN = 'admin';
+    public const ROLE_MANAGER = 'manager';
+    public const ROLE_WORKER = 'worker';
+
+    public const ROLES = [
+        self::ROLE_ADMIN,
+        self::ROLE_MANAGER,
+        self::ROLE_WORKER,
+    ];
+
+    public const PERMISSIONS = [
+        'dashboard.view',
+        'users.view',
+        'users.create',
+        'users.update',
+        'users.delete',
+        'users.activate',
+        'farms.view',
+        'farms.manage',
+        'batches.view',
+        'batches.manage',
+        'daily-records.view',
+        'daily-records.create',
+        'daily-records.update',
+        'feed.view',
+        'feed.manage',
+        'feed-usage.create',
+        'medicine.view',
+        'medicine.manage',
+        'vaccinations.manage',
+        'mortality.view',
+        'mortality.create',
+        'mortality.update',
+        'weights.view',
+        'weights.create',
+        'weights.update',
+        'expenses.view',
+        'expenses.manage',
+        'sales.view',
+        'sales.manage',
+        'inventory.view',
+        'inventory.manage',
+        'reports.view',
+        'profit-reports.view',
+        'settings.manage',
+    ];
+
+    public const ROLE_PERMISSIONS = [
+        self::ROLE_ADMIN => self::PERMISSIONS,
+        self::ROLE_MANAGER => [
+            'dashboard.view',
+            'farms.view',
+            'farms.manage',
+            'batches.view',
+            'batches.manage',
+            'daily-records.view',
+            'daily-records.create',
+            'daily-records.update',
+            'feed.view',
+            'feed.manage',
+            'feed-usage.create',
+            'medicine.view',
+            'medicine.manage',
+            'vaccinations.manage',
+            'mortality.view',
+            'mortality.create',
+            'mortality.update',
+            'weights.view',
+            'weights.create',
+            'weights.update',
+            'expenses.view',
+            'expenses.manage',
+            'sales.view',
+            'sales.manage',
+            'inventory.view',
+            'inventory.manage',
+            'reports.view',
+            'profit-reports.view',
+        ],
+        self::ROLE_WORKER => [
+            'dashboard.view',
+            'batches.view',
+            'daily-records.view',
+            'daily-records.create',
+            'feed.view',
+            'feed-usage.create',
+            'medicine.view',
+            'mortality.view',
+            'mortality.create',
+            'weights.view',
+            'weights.create',
+        ],
+    ];
+}
