@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\CategoryActivityType;
 use App\Http\Requests\FarmCategory\StoreFarmCategoryRequest;
 use App\Http\Requests\FarmCategory\UpdateFarmCategoryRequest;
 use App\Models\FarmCategory;
@@ -16,6 +17,7 @@ class FarmCategoryController extends Controller
         $search = $request->string('search')->toString();
         $parentId = $request->integer('parent_id') ?: null;
         $level = $request->string('level')->toString();
+        $activityType = $request->string('activity_type')->toString();
         $status = $request->string('status')->toString();
 
         $categories = FarmCategory::query()
@@ -32,6 +34,7 @@ class FarmCategoryController extends Controller
             ->when($parentId, fn ($query) => $query->where('parent_id', $parentId))
             ->when($level === 'top-level', fn ($query) => $query->topLevel())
             ->when($level === 'child', fn ($query) => $query->whereNotNull('parent_id'))
+            ->when(CategoryActivityType::tryFrom($activityType), fn ($query) => $query->where('activity_type', $activityType))
             ->when(in_array($status, ['active', 'inactive'], true), function ($query) use ($status) {
                 $query->where('is_active', $status === 'active');
             })
@@ -45,6 +48,8 @@ class FarmCategoryController extends Controller
             'search' => $search,
             'parentId' => $parentId,
             'level' => $level,
+            'activityType' => $activityType,
+            'activityTypes' => CategoryActivityType::options(),
             'status' => $status,
         ]);
     }
@@ -53,6 +58,7 @@ class FarmCategoryController extends Controller
     {
         return view('farm-categories.create', [
             'parentCategories' => FarmCategory::active()->topLevel()->ordered()->get(),
+            'activityTypes' => CategoryActivityType::options(),
         ]);
     }
 
@@ -77,7 +83,11 @@ class FarmCategoryController extends Controller
             ->ordered()
             ->get();
 
-        return view('farm-categories.edit', compact('farmCategory', 'parentCategories'));
+        return view('farm-categories.edit', [
+            'farmCategory' => $farmCategory,
+            'parentCategories' => $parentCategories,
+            'activityTypes' => CategoryActivityType::options(),
+        ]);
     }
 
     public function update(UpdateFarmCategoryRequest $request, FarmCategory $farmCategory): RedirectResponse

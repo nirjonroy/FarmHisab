@@ -11,10 +11,10 @@
         <div class="card-body">
             <div class="d-flex flex-wrap justify-content-between gap-2 mb-3">
                 <form method="GET" action="{{ route('farm-categories.index') }}" class="row g-2 flex-grow-1">
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <input type="search" name="search" value="{{ $search }}" class="form-control" placeholder="{{ __('farm_categories.search_placeholder') }}">
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <select name="parent_id" class="form-select">
                             <option value="">{{ __('farm_categories.filter_by_parent') }}</option>
                             @foreach ($parentCategories as $parentCategory)
@@ -27,6 +27,14 @@
                             <option value="">{{ __('farm_categories.filter_by_level') }}</option>
                             <option value="top-level" @selected($level === 'top-level')>{{ __('farm_categories.top_level') }}</option>
                             <option value="child" @selected($level === 'child')>{{ __('farm_categories.child_category') }}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <select name="activity_type" class="form-select">
+                            <option value="">{{ __('farm_categories.all_activity_types') }}</option>
+                            @foreach ($activityTypes as $value => $label)
+                                <option value="{{ $value }}" @selected($activityType === $value)>{{ $label }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="col-md-2">
@@ -52,6 +60,7 @@
                             <th>{{ __('farm_categories.category_name') }}</th>
                             <th>{{ __('farm_categories.parent_category') }}</th>
                             <th>{{ __('farm_categories.slug') }}</th>
+                            <th>{{ __('farm_categories.activity_type') }}</th>
                             <th>{{ __('farm_categories.child_count') }}</th>
                             <th>{{ __('common.status') }}</th>
                             <th>{{ __('farm_categories.created_by') }}</th>
@@ -79,6 +88,7 @@
                                 </td>
                                 <td>{{ $category->parent?->display_name ?: __('farm_categories.no_parent') }}</td>
                                 <td><span class="fw-semibold">{{ $category->slug }}</span></td>
+                                <td><span class="badge text-bg-info">{{ $category->activity_type->label() }}</span></td>
                                 <td>{{ $category->children_count }}</td>
                                 <td>
                                     <span class="badge {{ $category->is_active ? 'text-bg-success' : 'text-bg-danger' }}">
@@ -94,7 +104,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="7" class="text-center text-muted py-4">{{ __('farm_categories.no_categories_found') }}</td>
+                                <td colspan="8" class="text-center text-muted py-4">{{ __('farm_categories.no_categories_found') }}</td>
                             </tr>
                         @endforelse
                     </tbody>

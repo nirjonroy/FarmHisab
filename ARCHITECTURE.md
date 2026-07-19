@@ -10,7 +10,7 @@ The application uses standard Laravel conventions for routing, middleware, servi
 
 MySQL is the configured application database. Step 2 adds only authentication and authorization structures: Spatie permission tables and an `is_active` flag on `users`.
 
-Farm setup data supports multiple farm domains, not only poultry. `farm_categories` stores a two-level hierarchy for top-level categories such as Poultry, Livestock, and Aquaculture, with direct child categories such as Broiler, Cattle, and Fish. Categories and breed/species records are separate concepts: categories describe the operational farming type, while future breed/species records will describe more specific biological classifications. Future batch records are expected to reference a farm category.
+Farm setup data supports multiple business domains, not only poultry. `farm_categories` stores a two-level hierarchy for top-level categories such as Poultry, Livestock, Aquaculture, Crop Production, Agricultural Inputs, and Forestry & Natural Products, with direct child categories such as Broiler, Cattle, Fish, Paddy Cultivation, Fertilizer, Seed, and Bamboo. Categories include an `activity_type` value so they can represent production, trading, or hybrid activities. Fertilizer and seed will later use Product and Inventory modules, paddy cultivation will later use Crop Cycle records, and bamboo will later support inventory and sales records.
 
 ## Blade Web Dashboard
 
@@ -26,7 +26,7 @@ Existing module labels for Users, Farms, Sheds, and Farm Categories use module l
 
 Farm Category records support dynamic bilingual fields: `name_en`, `name_bn`, `description_en`, and `description_bn`. The UI reads `$category->display_name` and `$category->display_description` based on the active locale. The original `name` and `description` fields remain temporarily for backward compatibility while the category module transitions to bilingual data.
 
-Farm Category represents the farming type hierarchy, such as Poultry -> Broiler or Aquaculture -> Fish. Farm Variety represents the breed, species, strain, or variety within a child category, such as Cobb 500 under Broiler or Tilapia under Fish. A Farm Variety belongs to one child Farm Category; top-level categories do not directly contain varieties.
+Farm Category represents the business type hierarchy, such as Poultry -> Broiler, Aquaculture -> Fish, Crop Production -> Paddy Cultivation, Agricultural Inputs -> Fertilizer, or Forestry & Natural Products -> Bamboo. Farm Variety represents only breeds, species, strains, or crop varieties within a child category, such as Cobb 500 under Broiler or Tilapia under Fish. It is not for commercial products such as fertilizer brands. A Farm Variety belongs to one child Farm Category; top-level categories do not directly contain varieties.
 
 Static interface text and dynamic database records are separate translation concerns:
 

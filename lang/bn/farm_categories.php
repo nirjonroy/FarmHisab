@@ -1,9 +1,10 @@
 <?php
 
 return [
-    'title' => 'ফার্ম ক্যাটাগরি',
+    'title' => 'ব্যবসার ক্যাটাগরি',
+    'business_categories' => 'ব্যবসার ক্যাটাগরি',
     'add_category' => 'ক্যাটাগরি যোগ করুন',
-    'edit_category' => 'ফার্ম ক্যাটাগরি সম্পাদনা',
+    'edit_category' => 'ব্যবসার ক্যাটাগরি সম্পাদনা',
     'save_category' => 'ক্যাটাগরি সংরক্ষণ',
     'update_category' => 'ক্যাটাগরি আপডেট',
     'category_name' => 'ক্যাটাগরির নাম',
@@ -23,6 +24,11 @@ return [
     'slug_help' => 'খালি রাখলে ক্যাটাগরির নাম থেকে তৈরি হবে।',
     'description' => 'বিবরণ',
     'icon' => 'আইকন',
+    'activity_type' => 'ব্যবসার ধরন',
+    'all_activity_types' => 'সব ব্যবসার ধরন',
+    'production' => 'উৎপাদন',
+    'trading' => 'কেনাবেচা',
+    'hybrid' => 'উৎপাদন ও বিক্রয়',
     'sort_order' => 'সাজানোর ক্রম',
     'child_count' => 'চাইল্ড',
     'status' => 'অবস্থা',
@@ -33,8 +39,8 @@ return [
     'filter_by_level' => 'সব লেভেল',
     'top_level' => 'টপ-লেভেল',
     'child_category' => 'চাইল্ড',
-    'no_categories_found' => 'কোনো ফার্ম ক্যাটাগরি পাওয়া যায়নি।',
-    'create_success' => 'ফার্ম ক্যাটাগরি সফলভাবে তৈরি হয়েছে।',
-    'update_success' => 'ফার্ম ক্যাটাগরি সফলভাবে আপডেট হয়েছে।',
+    'no_categories_found' => 'কোনো ব্যবসার ক্যাটাগরি পাওয়া যায়নি।',
+    'create_success' => 'ব্যবসার ক্যাটাগরি সফলভাবে তৈরি হয়েছে।',
+    'update_success' => 'ব্যবসার ক্যাটাগরি সফলভাবে আপডেট হয়েছে।',
     'actions' => 'কার্যক্রম',
 ];

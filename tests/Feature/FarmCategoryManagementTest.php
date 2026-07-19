@@ -250,7 +250,7 @@ class FarmCategoryManagementTest extends TestCase
         $this->seed(FarmCategorySeeder::class);
         $this->seed(FarmCategorySeeder::class);
 
-        $this->assertSame(9, FarmCategory::count());
+        $this->assertSame(16, FarmCategory::count());
         $this->assertDatabaseHas('farm_categories', ['name' => 'Poultry', 'slug' => 'poultry', 'parent_id' => null]);
         $this->assertDatabaseHas('farm_categories', ['name' => 'Livestock', 'slug' => 'livestock', 'parent_id' => null]);
         $this->assertDatabaseHas('farm_categories', ['name' => 'Aquaculture', 'slug' => 'aquaculture', 'parent_id' => null]);

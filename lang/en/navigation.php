@@ -5,7 +5,7 @@ return [
     'users' => 'Users',
     'farms' => 'Farms',
     'sheds' => 'Sheds',
-    'farm_categories' => 'Farm Categories',
+    'farm_categories' => 'Business Categories',
     'batches' => 'Batches',
     'daily_records' => 'Daily records',
     'feed' => 'Feed',

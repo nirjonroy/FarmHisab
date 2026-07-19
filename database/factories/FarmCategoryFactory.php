@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\CategoryActivityType;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
@@ -25,6 +26,7 @@ class FarmCategoryFactory extends Factory
             'description_en' => null,
             'description_bn' => null,
             'icon' => null,
+            'activity_type' => CategoryActivityType::PRODUCTION,
             'sort_order' => $this->faker->numberBetween(0, 20),
             'is_active' => true,
             'created_by' => User::factory(),

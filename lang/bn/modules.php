@@ -5,7 +5,7 @@ return [
     'users' => 'ব্যবহারকারী',
     'farms' => 'ফার্ম',
     'sheds' => 'শেড',
-    'farm_categories' => 'ফার্ম ক্যাটাগরি',
+    'farm_categories' => 'ব্যবসার ক্যাটাগরি',
     'farm_varieties' => 'জাত ও প্রজাতি',
     'batches' => 'ব্যাচ',
     'daily_records' => 'দৈনিক রেকর্ড',

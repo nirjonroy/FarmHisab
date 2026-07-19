@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\FarmCategory;
 
+use App\Enums\CategoryActivityType;
 use App\Models\FarmCategory;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Str;
@@ -30,6 +31,7 @@ class UpdateFarmCategoryRequest extends FormRequest
             'name_bn' => $nameBn,
             'name' => $legacyName,
             'slug' => $slug,
+            'activity_type' => $this->input('activity_type', $category?->activity_type?->value ?? CategoryActivityType::PRODUCTION),
             'sort_order' => $this->input('sort_order', 0),
             'parent_id' => $this->filled('parent_id') ? $this->input('parent_id') : null,
         ]);
@@ -49,6 +51,7 @@ class UpdateFarmCategoryRequest extends FormRequest
             'description_bn' => ['nullable', 'string'],
             'description' => ['nullable', 'string'],
             'icon' => ['nullable', 'string', 'max:100'],
+            'activity_type' => ['required', Rule::in(CategoryActivityType::values())],
             'sort_order' => ['nullable', 'integer', 'min:0'],
             'is_active' => ['nullable', 'boolean'],
         ];
@@ -66,6 +69,7 @@ class UpdateFarmCategoryRequest extends FormRequest
             'description_en' => __('farm_categories.english_description'),
             'description_bn' => __('farm_categories.bengali_description'),
             'icon' => __('farm_categories.icon'),
+            'activity_type' => __('farm_categories.activity_type'),
             'sort_order' => __('farm_categories.sort_order'),
             'is_active' => __('farm_categories.status'),
         ];

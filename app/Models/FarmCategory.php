@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\CategoryActivityType;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -22,12 +23,14 @@ class FarmCategory extends Model
         'description_en',
         'description_bn',
         'icon',
+        'activity_type',
         'sort_order',
         'is_active',
         'created_by',
     ];
 
     protected $casts = [
+        'activity_type' => CategoryActivityType::class,
         'is_active' => 'boolean',
         'sort_order' => 'integer',
     ];
@@ -60,6 +63,21 @@ class FarmCategory extends Model
     public function scopeTopLevel(Builder $query): Builder
     {
         return $query->whereNull('parent_id');
+    }
+
+    public function scopeProduction(Builder $query): Builder
+    {
+        return $query->where('activity_type', CategoryActivityType::PRODUCTION);
+    }
+
+    public function scopeTrading(Builder $query): Builder
+    {
+        return $query->where('activity_type', CategoryActivityType::TRADING);
+    }
+
+    public function scopeHybrid(Builder $query): Builder
+    {
+        return $query->where('activity_type', CategoryActivityType::HYBRID);
     }
 
     public function scopeOrdered(Builder $query): Builder

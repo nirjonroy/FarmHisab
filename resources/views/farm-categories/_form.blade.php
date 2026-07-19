@@ -33,6 +33,16 @@
     </div>
 
     <div class="col-md-6">
+        <label for="activity_type" class="form-label">{{ __('farm_categories.activity_type') }}</label>
+        <select id="activity_type" name="activity_type" class="form-select @error('activity_type') is-invalid @enderror" required>
+            @foreach ($activityTypes as $value => $label)
+                <option value="{{ $value }}" @selected(old('activity_type', ($farmCategory->activity_type->value ?? 'production')) === $value)>{{ $label }}</option>
+            @endforeach
+        </select>
+        @error('activity_type')<div class="invalid-feedback">{{ $message }}</div>@enderror
+    </div>
+
+    <div class="col-md-6">
         <label for="icon" class="form-label">{{ __('farm_categories.icon') }}</label>
         <input id="icon" type="text" name="icon" value="{{ old('icon', $farmCategory->icon ?? '') }}" class="form-control @error('icon') is-invalid @enderror">
         @error('icon')<div class="invalid-feedback">{{ $message }}</div>@enderror

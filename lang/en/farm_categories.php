@@ -1,9 +1,10 @@
 <?php
 
 return [
-    'title' => 'Farm Categories',
+    'title' => 'Business Categories',
+    'business_categories' => 'Business Categories',
     'add_category' => 'Add Category',
-    'edit_category' => 'Edit Farm Category',
+    'edit_category' => 'Edit Business Category',
     'save_category' => 'Save category',
     'update_category' => 'Update category',
     'category_name' => 'Category name',
@@ -23,6 +24,11 @@ return [
     'slug_help' => 'Leave blank to generate from the category name.',
     'description' => 'Description',
     'icon' => 'Icon',
+    'activity_type' => 'Business Type',
+    'all_activity_types' => 'All Business Types',
+    'production' => 'Production',
+    'trading' => 'Trading',
+    'hybrid' => 'Production & Trading',
     'sort_order' => 'Sort order',
     'child_count' => 'Children',
     'status' => 'Status',
@@ -33,8 +39,8 @@ return [
     'filter_by_level' => 'All levels',
     'top_level' => 'Top-level',
     'child_category' => 'Child',
-    'no_categories_found' => 'No farm categories found.',
-    'create_success' => 'Farm category created successfully.',
-    'update_success' => 'Farm category updated successfully.',
+    'no_categories_found' => 'No business categories found.',
+    'create_success' => 'Business category created successfully.',
+    'update_success' => 'Business category updated successfully.',
     'actions' => 'Actions',
 ];

@@ -184,7 +184,7 @@ class FarmCategoryBilingualTest extends TestCase
         $this->seed(FarmCategorySeeder::class);
         $this->seed(FarmCategorySeeder::class);
 
-        $this->assertSame(9, FarmCategory::count());
+        $this->assertSame(16, FarmCategory::count());
         $this->assertDatabaseHas('farm_categories', [
             'slug' => 'poultry',
             'name' => 'Poultry',

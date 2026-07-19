@@ -338,9 +338,9 @@ Run the Shed Management tests with:
 php artisan test --filter=ShedManagementTest
 ```
 
-## Dynamic Farm Categories
+## Dynamic Business Categories
 
-Step 3C adds dynamic Farm Category Management. FarmHisab is not limited to poultry; categories can represent poultry, livestock, aquaculture, and future farming domains.
+FarmHisab keeps the internal `FarmCategory` model, `farm_categories` table, and `farm-categories.*` routes, while the UI labels this area as Business Categories. Categories can represent production, trading, or hybrid business activities.
 
 Category hierarchy is limited to two levels in this step:
 
@@ -353,10 +353,17 @@ Category hierarchy is limited to two levels in this step:
   - Goat
 - Aquaculture
   - Fish
+- Crop Production
+  - Paddy Cultivation
+- Agricultural Inputs
+  - Fertilizer
+  - Seed
+- Forestry & Natural Products
+  - Bamboo
 
 Farm category web routes:
 
-- `farm-categories.index` - category list, search, parent filter, level filter, and status filter, requires `farm-categories.view`
+- `farm-categories.index` - category list, search, parent filter, level filter, activity type filter, and status filter, requires `farm-categories.view`
 - `farm-categories.create` - create form, requires `farm-categories.manage`
 - `farm-categories.store` - save new category, requires `farm-categories.manage`
 - `farm-categories.edit` - edit form, requires `farm-categories.manage`
@@ -367,6 +374,8 @@ Seed default categories:
 ```bash
 php artisan db:seed --class=FarmCategorySeeder
 ```
+
+The seeder can be run repeatedly without creating duplicate categories.
 
 Run category tests:
 
