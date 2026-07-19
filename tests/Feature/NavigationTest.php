@@ -50,7 +50,7 @@ class NavigationTest extends TestCase
             ->assertDontSee('Users')
             ->assertDontSee('Sales')
             ->assertSee('Batches')
-            ->assertSee('Daily records')
+            ->assertSee('Daily Records')
             ->assertSee('Feed');
     }
 }

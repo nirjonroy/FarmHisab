@@ -18,10 +18,10 @@
             <main class="col-lg-10 ms-sm-auto px-md-4 py-4">
                 <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
                     <div>
-                        <h1 class="h3 mb-1">@yield('page_title', __('navigation.dashboard'))</h1>
+                        <h1 class="h3 mb-1">@yield('page_title', __('modules.dashboard'))</h1>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb mb-0">
-                                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">{{ __('navigation.dashboard') }}</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">{{ __('modules.dashboard') }}</a></li>
                                 @yield('breadcrumbs')
                             </ol>
                         </nav>

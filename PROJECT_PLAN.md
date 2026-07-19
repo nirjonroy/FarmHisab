@@ -12,6 +12,7 @@ FarmHisab is being built in planned steps so the foundation stays clean and each
 - Step 3D-1: Bengali and English localization foundation with language files, web locale middleware, language switching, and user locale preference storage.
 - Step 3D-2: Existing CRUD pages localized into Bengali and English for Users, Farms, Sheds, and Farm Categories.
 - Step 3D-3: Dynamic bilingual Farm Category fields with locale-aware display accessors.
+- Step 3D-4: Coming Soon pages, breadcrumbs, and remaining navigation labels localized through safe module mappings.
 
 ## Planned Modules
 
@@ -22,6 +23,7 @@ FarmHisab is being built in planned steps so the foundation stays clean and each
 - Localization foundation
 - Existing CRUD pages localization
 - Dynamic bilingual farm categories
+- Coming Soon and navigation localization cleanup
 - Breed and species management
 - Batch management
 - Daily farm records

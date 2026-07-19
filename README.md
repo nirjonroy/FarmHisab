@@ -165,6 +165,14 @@ Language route:
 
 - `language.switch` - `POST /language/{locale}`
 
+Coming Soon module names are resolved through `config/modules.php`. To add a new planned module link:
+
+1. Add the module slug, permission, and translation key to `config/modules.php`.
+2. Add the matching label to both `lang/en/modules.php` and `lang/bn/modules.php`.
+3. Link to `route('coming-soon', 'module-slug')`.
+
+Do not pass raw request text directly as a Coming Soon page title.
+
 Run localization tests with:
 
 ```bash
