@@ -15,6 +15,9 @@
     @can('farm-varieties.view')
         <a class="list-group-item list-group-item-action {{ request()->routeIs('farm-varieties.*') ? 'active' : '' }}" href="{{ route('farm-varieties.index') }}">{{ __('modules.farm_varieties') }}</a>
     @endcan
+    @can('measurement-units.view')
+        <a class="list-group-item list-group-item-action {{ request()->routeIs('measurement-units.*') ? 'active' : '' }}" href="{{ route('measurement-units.index') }}">{{ __('modules.measurement_units') }}</a>
+    @endcan
     @can('batches.view')
         <a class="list-group-item list-group-item-action" href="{{ route('coming-soon', 'batches') }}">{{ __('modules.batches') }}</a>
     @endcan

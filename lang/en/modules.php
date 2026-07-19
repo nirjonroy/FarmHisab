@@ -7,6 +7,7 @@ return [
     'sheds' => 'Sheds',
     'farm_categories' => 'Business Categories',
     'farm_varieties' => 'Breeds & Species',
+    'measurement_units' => 'Measurement Units',
     'batches' => 'Batches',
     'daily_records' => 'Daily Records',
     'feed' => 'Feed',

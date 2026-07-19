@@ -11,6 +11,7 @@ use App\Http\Controllers\FarmCategoryController;
 use App\Http\Controllers\FarmController;
 use App\Http\Controllers\FarmVarietyController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\MeasurementUnitController;
 use App\Http\Controllers\ShedController;
 use Illuminate\Support\Facades\Route;
 
@@ -81,6 +82,14 @@ Route::middleware('auth')->group(function () {
         Route::post('/', [FarmVarietyController::class, 'store'])->middleware('permission:farm-varieties.manage')->name('store');
         Route::get('/{farmVariety}/edit', [FarmVarietyController::class, 'edit'])->middleware('permission:farm-varieties.manage')->name('edit');
         Route::put('/{farmVariety}', [FarmVarietyController::class, 'update'])->middleware('permission:farm-varieties.manage')->name('update');
+    });
+
+    Route::prefix('measurement-units')->name('measurement-units.')->group(function () {
+        Route::get('/', [MeasurementUnitController::class, 'index'])->middleware('permission:measurement-units.view')->name('index');
+        Route::get('/create', [MeasurementUnitController::class, 'create'])->middleware('permission:measurement-units.manage')->name('create');
+        Route::post('/', [MeasurementUnitController::class, 'store'])->middleware('permission:measurement-units.manage')->name('store');
+        Route::get('/{measurementUnit}/edit', [MeasurementUnitController::class, 'edit'])->middleware('permission:measurement-units.manage')->name('edit');
+        Route::put('/{measurementUnit}', [MeasurementUnitController::class, 'update'])->middleware('permission:measurement-units.manage')->name('update');
     });
 
     Route::prefix('admin')->name('admin.')->middleware('permission:users.view')->group(function () {

@@ -16,6 +16,7 @@ FarmHisab is being built in planned steps so the foundation stays clean and each
 - Step 3E-1: Dynamic Farm Variety Management for breeds, species, strains, and varieties under child farm categories.
 - Step 3E-2: Default bilingual Farm Variety seed data.
 - Step 3F-1: Production and Trading Category Support for production, trading, and hybrid business categories.
+- Step 3F-2A: Dynamic Measurement Unit Management.
 
 ## Planned Modules
 
@@ -29,6 +30,7 @@ FarmHisab is being built in planned steps so the foundation stays clean and each
 - Coming Soon and navigation localization cleanup
 - Dynamic farm variety management
 - Default farm variety seed data
+- Dynamic measurement unit management
 - Product Catalog
 - Agricultural Input Inventory
 - Paddy Cultivation Cycle

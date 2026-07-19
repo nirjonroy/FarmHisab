@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'title' => 'পরিমাপের একক',
+    'add_unit' => 'একক যোগ করুন',
+    'edit_unit' => 'একক সম্পাদনা',
+    'save_unit' => 'একক সংরক্ষণ',
+    'update_unit' => 'একক আপডেট',
+    'english_name' => 'ইংরেজি নাম',
+    'bengali_name' => 'বাংলা নাম',
+    'english_short_name' => 'ইংরেজি সংক্ষিপ্ত নাম',
+    'bengali_short_name' => 'বাংলা সংক্ষিপ্ত নাম',
+    'code' => 'কোড',
+    'decimal_places' => 'দশমিক ঘর',
+    'decimal_places_help' => '০ থেকে ৪ এর মধ্যে মান ব্যবহার করুন।',
+    'english_description' => 'ইংরেজি বিবরণ',
+    'bengali_description' => 'বাংলা বিবরণ',
+    'sort_order' => 'সাজানোর ক্রম',
+    'status' => 'অবস্থা',
+    'created_by' => 'তৈরি করেছেন',
+    'actions' => 'কার্যক্রম',
+    'search_placeholder' => 'নাম, সংক্ষিপ্ত নাম, বা কোড অনুসন্ধান করুন',
+    'all_statuses' => 'সব অবস্থা',
+    'no_units_found' => 'কোনো পরিমাপের একক পাওয়া যায়নি।',
+    'create_success' => 'পরিমাপের একক সফলভাবে তৈরি হয়েছে।',
+    'update_success' => 'পরিমাপের একক সফলভাবে আপডেট হয়েছে।',
+];

@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'title' => 'Measurement Units',
+    'add_unit' => 'Add Unit',
+    'edit_unit' => 'Edit Unit',
+    'save_unit' => 'Save unit',
+    'update_unit' => 'Update unit',
+    'english_name' => 'English name',
+    'bengali_name' => 'Bengali name',
+    'english_short_name' => 'English short name',
+    'bengali_short_name' => 'Bengali short name',
+    'code' => 'Code',
+    'decimal_places' => 'Decimal places',
+    'decimal_places_help' => 'Use a value from 0 to 4.',
+    'english_description' => 'English description',
+    'bengali_description' => 'Bengali description',
+    'sort_order' => 'Sort order',
+    'status' => 'Status',
+    'created_by' => 'Created by',
+    'actions' => 'Actions',
+    'search_placeholder' => 'Search name, short name, or code',
+    'all_statuses' => 'All statuses',
+    'no_units_found' => 'No measurement units found.',
+    'create_success' => 'Measurement unit created successfully.',
+    'update_success' => 'Measurement unit updated successfully.',
+];

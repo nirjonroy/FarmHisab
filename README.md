@@ -209,6 +209,8 @@ Manager receives:
 - `farm-categories.manage`
 - `farm-varieties.view`
 - `farm-varieties.manage`
+- `measurement-units.view`
+- `measurement-units.manage`
 - `batches.view`
 - `batches.manage`
 - `daily-records.view`
@@ -240,6 +242,7 @@ Worker receives:
 - `dashboard.view`
 - `farm-categories.view`
 - `farm-varieties.view`
+- `measurement-units.view`
 - `batches.view`
 - `daily-records.view`
 - `daily-records.create`
@@ -409,6 +412,26 @@ Run variety tests:
 
 ```bash
 php artisan test --filter=FarmVarietyManagementTest
+```
+
+## Measurement Unit Management
+
+Measurement Units define reusable units such as kilogram, gram, maund, litre, bag, packet, piece, dozen, bundle, and bottle. Product Catalog and Inventory will use these units later.
+
+Measurement unit web routes:
+
+- `measurement-units.index` - unit list, search, and status filter, requires `measurement-units.view`
+- `measurement-units.create` - create form, requires `measurement-units.manage`
+- `measurement-units.store` - save new unit, requires `measurement-units.manage`
+- `measurement-units.edit` - edit form, requires `measurement-units.manage`
+- `measurement-units.update` - update unit, requires `measurement-units.manage`
+
+Manager receives `measurement-units.view` and `measurement-units.manage`. Worker receives `measurement-units.view`.
+
+Seed default measurement units:
+
+```bash
+php artisan db:seed --class=MeasurementUnitSeeder
 ```
 
 ## Android API

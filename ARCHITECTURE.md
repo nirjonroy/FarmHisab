@@ -28,6 +28,8 @@ Farm Category records support dynamic bilingual fields: `name_en`, `name_bn`, `d
 
 Farm Category represents the business type hierarchy, such as Poultry -> Broiler, Aquaculture -> Fish, Crop Production -> Paddy Cultivation, Agricultural Inputs -> Fertilizer, or Forestry & Natural Products -> Bamboo. Farm Variety represents only breeds, species, strains, or crop varieties within a child category, such as Cobb 500 under Broiler or Tilapia under Fish. It is not for commercial products such as fertilizer brands. A Farm Variety belongs to one child Farm Category; top-level categories do not directly contain varieties.
 
+Measurement Units define reusable quantity units such as kilogram, litre, bag, piece, and bundle. Future products will reference a base measurement unit, transactions may later support unit conversion, and stock quantities should use decimal values according to each unit's `decimal_places` setting.
+
 Static interface text and dynamic database records are separate translation concerns:
 
 - Static interface text belongs in Laravel language files.
