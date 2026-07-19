@@ -37,7 +37,7 @@ class NavigationTest extends TestCase
         $this->actingAs($user)->get(route('dashboard'))
             ->assertDontSee('Users')
             ->assertDontSee('Settings')
-            ->assertSee('Farms and sheds')
+            ->assertSee('Farms')
             ->assertSee('Reports');
     }
 

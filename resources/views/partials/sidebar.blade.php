@@ -6,7 +6,7 @@
         <a class="list-group-item list-group-item-action {{ request()->routeIs('admin.users.*') ? 'active' : '' }}" href="{{ route('admin.users.index') }}">Users</a>
     @endcan
     @can('farms.view')
-        <a class="list-group-item list-group-item-action" href="{{ route('coming-soon', 'farms') }}">Farms and sheds</a>
+        <a class="list-group-item list-group-item-action {{ request()->routeIs('farms.*') ? 'active' : '' }}" href="{{ route('farms.index') }}">Farms</a>
     @endcan
     @can('batches.view')
         <a class="list-group-item list-group-item-action" href="{{ route('coming-soon', 'batches') }}">Batches</a>

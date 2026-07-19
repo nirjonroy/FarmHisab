@@ -219,6 +219,24 @@ Admin users with the required permissions can:
 
 Passwords are hashed and never displayed.
 
+## Farm Management
+
+Step 3A adds basic Farm Management only. Shed management and all poultry business modules remain pending.
+
+Farm web routes:
+
+- `farms.index` - farm list and search, requires `farms.view`
+- `farms.create` - create form, requires `farms.manage`
+- `farms.store` - save new farm, requires `farms.manage`
+- `farms.edit` - edit form, requires `farms.manage`
+- `farms.update` - update farm, requires `farms.manage`
+
+Run the Farm Management tests with:
+
+```bash
+php artisan test --filter=FarmManagementTest
+```
+
 ## Android API
 
 Laravel Sanctum is installed for future Android token authentication. Android API authorization will reuse the same permission model. No Android business API endpoints are implemented yet.

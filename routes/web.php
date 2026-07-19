@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ComingSoonController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FarmController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,6 +44,14 @@ Route::middleware('auth')->group(function () {
         ->name('dashboard');
 
     Route::get('/coming-soon/{module}', ComingSoonController::class)->name('coming-soon');
+
+    Route::prefix('farms')->name('farms.')->group(function () {
+        Route::get('/', [FarmController::class, 'index'])->middleware('permission:farms.view')->name('index');
+        Route::get('/create', [FarmController::class, 'create'])->middleware('permission:farms.manage')->name('create');
+        Route::post('/', [FarmController::class, 'store'])->middleware('permission:farms.manage')->name('store');
+        Route::get('/{farm}/edit', [FarmController::class, 'edit'])->middleware('permission:farms.manage')->name('edit');
+        Route::put('/{farm}', [FarmController::class, 'update'])->middleware('permission:farms.manage')->name('update');
+    });
 
     Route::prefix('admin')->name('admin.')->middleware('permission:users.view')->group(function () {
         Route::get('/users', [UserController::class, 'index'])->name('users.index');
