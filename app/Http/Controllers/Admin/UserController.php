@@ -49,7 +49,7 @@ class UserController extends Controller
     {
         $this->users->create($request->validated());
 
-        return redirect()->route('admin.users.index')->with('success', __('messages.user_created'));
+        return redirect()->route('admin.users.index')->with('success', __('users.create_success'));
     }
 
     public function edit(User $user): View
@@ -66,7 +66,7 @@ class UserController extends Controller
     {
         $this->users->update($user, $request->validated());
 
-        return redirect()->route('admin.users.index')->with('success', __('messages.user_updated'));
+        return redirect()->route('admin.users.index')->with('success', __('users.update_success'));
     }
 
     public function destroy(Request $request, User $user): RedirectResponse
@@ -77,7 +77,7 @@ class UserController extends Controller
             $user->delete();
         });
 
-        return redirect()->route('admin.users.index')->with('success', __('messages.user_deleted'));
+        return redirect()->route('admin.users.index')->with('success', __('users.delete_success'));
     }
 
     public function toggleStatus(Request $request, User $user): RedirectResponse
@@ -90,6 +90,6 @@ class UserController extends Controller
 
         $this->users->setActive($user, ! $user->is_active);
 
-        return redirect()->route('admin.users.index')->with('success', __('messages.user_status_updated'));
+        return redirect()->route('admin.users.index')->with('success', __('users.status_update_success'));
     }
 }

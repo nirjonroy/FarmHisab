@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'title' => 'Farms',
+    'add_farm' => 'Add Farm',
+    'edit_farm' => 'Edit Farm',
+    'save_farm' => 'Save farm',
+    'update_farm' => 'Update farm',
+    'farm_name' => 'Farm name',
+    'farm_code' => 'Farm code',
+    'code' => 'Code',
+    'location' => 'Location',
+    'phone' => 'Phone',
+    'address' => 'Address',
+    'district' => 'District',
+    'upazila' => 'Upazila',
+    'union' => 'Union',
+    'description' => 'Description',
+    'status' => 'Status',
+    'created_by' => 'Created by',
+    'shed_count' => 'Sheds',
+    'search_placeholder' => 'Search farms',
+    'no_farms_found' => 'No farms found.',
+    'create_success' => 'Farm created successfully.',
+    'update_success' => 'Farm updated successfully.',
+    'actions' => 'Actions',
+];

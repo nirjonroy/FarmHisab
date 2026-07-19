@@ -26,4 +26,19 @@ class StoreFarmRequest extends FormRequest
             'is_active' => ['nullable', 'boolean'],
         ];
     }
+
+    public function attributes(): array
+    {
+        return [
+            'name' => __('farms.farm_name'),
+            'code' => __('farms.farm_code'),
+            'phone' => __('farms.phone'),
+            'address' => __('farms.address'),
+            'district' => __('farms.district'),
+            'upazila' => __('farms.upazila'),
+            'union_name' => __('farms.union'),
+            'description' => __('farms.description'),
+            'is_active' => __('farms.status'),
+        ];
+    }
 }

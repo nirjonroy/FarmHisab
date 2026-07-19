@@ -25,4 +25,14 @@ class UpdateUserRequest extends FormRequest
             'role' => ['required', Rule::in(AccessControl::ROLES), Rule::exists('roles', 'name')->where('guard_name', 'web')],
         ];
     }
+
+    public function attributes(): array
+    {
+        return [
+            'name' => __('users.name'),
+            'email' => __('users.email'),
+            'password' => __('users.password'),
+            'role' => __('users.role'),
+        ];
+    }
 }

@@ -30,4 +30,16 @@ class UpdateShedRequest extends FormRequest
             'is_active' => ['nullable', 'boolean'],
         ];
     }
+
+    public function attributes(): array
+    {
+        return [
+            'farm_id' => __('sheds.farm'),
+            'name' => __('sheds.shed_name'),
+            'code' => __('sheds.shed_code'),
+            'capacity' => __('sheds.capacity'),
+            'description' => __('sheds.description'),
+            'is_active' => __('sheds.status'),
+        ];
+    }
 }

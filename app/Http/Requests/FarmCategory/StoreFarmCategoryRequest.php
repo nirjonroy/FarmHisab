@@ -41,13 +41,26 @@ class StoreFarmCategoryRequest extends FormRequest
         ];
     }
 
+    public function attributes(): array
+    {
+        return [
+            'parent_id' => __('farm_categories.parent_category'),
+            'name' => __('farm_categories.category_name'),
+            'slug' => __('farm_categories.slug'),
+            'description' => __('farm_categories.description'),
+            'icon' => __('farm_categories.icon'),
+            'sort_order' => __('farm_categories.sort_order'),
+            'is_active' => __('farm_categories.status'),
+        ];
+    }
+
     public function withValidator(Validator $validator): void
     {
         $validator->after(function (Validator $validator) {
             $parent = $this->parentCategory();
 
             if ($parent && ! $parent->isTopLevel()) {
-                $validator->errors()->add('parent_id', 'Only top-level categories can be selected as a parent.');
+                $validator->errors()->add('parent_id', __('validation.custom.parent_id.top_level_parent'));
             }
         });
     }

@@ -24,4 +24,15 @@ class StoreUserRequest extends FormRequest
             'is_active' => ['nullable', 'boolean'],
         ];
     }
+
+    public function attributes(): array
+    {
+        return [
+            'name' => __('users.name'),
+            'email' => __('users.email'),
+            'password' => __('users.password'),
+            'role' => __('users.role'),
+            'is_active' => __('users.active_status'),
+        ];
+    }
 }

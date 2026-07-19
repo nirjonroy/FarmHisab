@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'title' => 'ফার্ম',
+    'add_farm' => 'ফার্ম যোগ করুন',
+    'edit_farm' => 'ফার্ম সম্পাদনা',
+    'save_farm' => 'ফার্ম সংরক্ষণ',
+    'update_farm' => 'ফার্ম আপডেট',
+    'farm_name' => 'ফার্মের নাম',
+    'farm_code' => 'ফার্ম কোড',
+    'code' => 'কোড',
+    'location' => 'অবস্থান',
+    'phone' => 'ফোন',
+    'address' => 'ঠিকানা',
+    'district' => 'জেলা',
+    'upazila' => 'উপজেলা',
+    'union' => 'ইউনিয়ন',
+    'description' => 'বিবরণ',
+    'status' => 'অবস্থা',
+    'created_by' => 'তৈরি করেছেন',
+    'shed_count' => 'শেড',
+    'search_placeholder' => 'ফার্ম অনুসন্ধান করুন',
+    'no_farms_found' => 'কোনো ফার্ম পাওয়া যায়নি।',
+    'create_success' => 'ফার্ম সফলভাবে তৈরি হয়েছে।',
+    'update_success' => 'ফার্ম সফলভাবে আপডেট হয়েছে।',
+    'actions' => 'কার্যক্রম',
+];

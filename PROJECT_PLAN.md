@@ -10,6 +10,7 @@ FarmHisab is being built in planned steps so the foundation stays clean and each
 - Step 3B: Basic Shed Management with shed listing, search, farm/status filters, create, edit, active status, capacity, and creator tracking.
 - Step 3C: Dynamic Farm Category Management for poultry, livestock, aquaculture, and future farming categories.
 - Step 3D-1: Bengali and English localization foundation with language files, web locale middleware, language switching, and user locale preference storage.
+- Step 3D-2: Existing CRUD pages localized into Bengali and English for Users, Farms, Sheds, and Farm Categories.
 
 ## Planned Modules
 
@@ -18,6 +19,7 @@ FarmHisab is being built in planned steps so the foundation stays clean and each
 - Basic shed management
 - Dynamic farm category management
 - Localization foundation
+- Existing CRUD pages localization
 - Breed and species management
 - Batch management
 - Daily farm records

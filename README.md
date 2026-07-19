@@ -135,9 +135,22 @@ __('common.save')
 __('dashboard.active_batches')
 ```
 
+Existing CRUD module labels are organized by module:
+
+- `lang/{locale}/users.php`
+- `lang/{locale}/farms.php`
+- `lang/{locale}/sheds.php`
+- `lang/{locale}/farm_categories.php`
+
+For a new module, create a matching translation file for both `en` and `bn`, then reference labels with semantic keys:
+
+```php
+__('farms.title')
+```
+
 Locale preference is stored in the session for guests. For authenticated users, it is also stored in `users.locale`.
 
-Dynamic database records should not use language files. Future translated data should use separate fields such as `name_en`, `name_bn`, `description_en`, and `description_bn`. Future Android APIs may return those fields plus a `display_name` based on the requested locale.
+Dynamic database records are not translated yet and should not use language files. Future translated data should use separate fields such as `name_en`, `name_bn`, `description_en`, and `description_bn`. Future Android APIs may return those fields plus a `display_name` based on the requested locale.
 
 Language route:
 

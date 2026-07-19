@@ -60,7 +60,7 @@ class FarmCategoryController extends Controller
             'created_by' => $request->user()->id,
         ]);
 
-        return redirect()->route('farm-categories.index')->with('success', __('messages.farm_category_created'));
+        return redirect()->route('farm-categories.index')->with('success', __('farm_categories.create_success'));
     }
 
     public function edit(FarmCategory $farmCategory): View
@@ -82,7 +82,7 @@ class FarmCategoryController extends Controller
     {
         $farmCategory->update($this->payload($request->validated()));
 
-        return redirect()->route('farm-categories.index')->with('success', __('messages.farm_category_updated'));
+        return redirect()->route('farm-categories.index')->with('success', __('farm_categories.update_success'));
     }
 
     private function payload(array $data): array

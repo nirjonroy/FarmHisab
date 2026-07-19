@@ -142,8 +142,10 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'parent_id' => [
+            'top_level_parent' => 'Only top-level categories can be selected as a parent.',
+            'self_parent' => 'A category cannot be its own parent.',
+            'parent_with_children' => 'A category with child categories cannot be moved under another parent.',
         ],
     ],
 
@@ -158,6 +160,25 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'name' => 'name',
+        'email' => 'email',
+        'password' => 'password',
+        'role' => 'role',
+        'is_active' => 'active status',
+        'code' => 'code',
+        'phone' => 'phone',
+        'address' => 'address',
+        'district' => 'district',
+        'upazila' => 'upazila',
+        'union_name' => 'union',
+        'description' => 'description',
+        'farm_id' => 'farm',
+        'capacity' => 'capacity',
+        'parent_id' => 'parent category',
+        'slug' => 'slug',
+        'icon' => 'icon',
+        'sort_order' => 'sort order',
+    ],
 
 ];

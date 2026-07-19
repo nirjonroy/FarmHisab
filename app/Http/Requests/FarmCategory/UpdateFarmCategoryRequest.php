@@ -44,6 +44,19 @@ class UpdateFarmCategoryRequest extends FormRequest
         ];
     }
 
+    public function attributes(): array
+    {
+        return [
+            'parent_id' => __('farm_categories.parent_category'),
+            'name' => __('farm_categories.category_name'),
+            'slug' => __('farm_categories.slug'),
+            'description' => __('farm_categories.description'),
+            'icon' => __('farm_categories.icon'),
+            'sort_order' => __('farm_categories.sort_order'),
+            'is_active' => __('farm_categories.status'),
+        ];
+    }
+
     public function withValidator(Validator $validator): void
     {
         $validator->after(function (Validator $validator) {
@@ -55,15 +68,15 @@ class UpdateFarmCategoryRequest extends FormRequest
             }
 
             if ($parent && $parent->is($category)) {
-                $validator->errors()->add('parent_id', 'A category cannot be its own parent.');
+                $validator->errors()->add('parent_id', __('validation.custom.parent_id.self_parent'));
             }
 
             if ($parent && ! $parent->isTopLevel()) {
-                $validator->errors()->add('parent_id', 'Only top-level categories can be selected as a parent.');
+                $validator->errors()->add('parent_id', __('validation.custom.parent_id.top_level_parent'));
             }
 
             if ($parent && $category->hasChildren()) {
-                $validator->errors()->add('parent_id', 'A category with child categories cannot be moved under another parent.');
+                $validator->errors()->add('parent_id', __('validation.custom.parent_id.parent_with_children'));
             }
         });
     }
