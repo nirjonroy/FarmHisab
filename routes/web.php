@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ComingSoonController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FarmController;
+use App\Http\Controllers\ShedController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,6 +52,14 @@ Route::middleware('auth')->group(function () {
         Route::post('/', [FarmController::class, 'store'])->middleware('permission:farms.manage')->name('store');
         Route::get('/{farm}/edit', [FarmController::class, 'edit'])->middleware('permission:farms.manage')->name('edit');
         Route::put('/{farm}', [FarmController::class, 'update'])->middleware('permission:farms.manage')->name('update');
+    });
+
+    Route::prefix('sheds')->name('sheds.')->group(function () {
+        Route::get('/', [ShedController::class, 'index'])->middleware('permission:farms.view')->name('index');
+        Route::get('/create', [ShedController::class, 'create'])->middleware('permission:farms.manage')->name('create');
+        Route::post('/', [ShedController::class, 'store'])->middleware('permission:farms.manage')->name('store');
+        Route::get('/{shed}/edit', [ShedController::class, 'edit'])->middleware('permission:farms.manage')->name('edit');
+        Route::put('/{shed}', [ShedController::class, 'update'])->middleware('permission:farms.manage')->name('update');
     });
 
     Route::prefix('admin')->name('admin.')->middleware('permission:users.view')->group(function () {

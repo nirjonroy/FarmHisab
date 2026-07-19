@@ -26,6 +26,7 @@
                             <th>Name</th>
                             <th>Code</th>
                             <th>Location</th>
+                            <th>Sheds</th>
                             <th>Phone</th>
                             <th>Status</th>
                             <th>Created by</th>
@@ -40,6 +41,7 @@
                                 <td>
                                     {{ collect([$farm->union_name, $farm->upazila, $farm->district])->filter()->join(', ') ?: 'Not set' }}
                                 </td>
+                                <td>{{ $farm->sheds_count }}</td>
                                 <td>{{ $farm->phone ?: 'Not set' }}</td>
                                 <td>
                                     <span class="badge {{ $farm->is_active ? 'text-bg-success' : 'text-bg-danger' }}">
@@ -55,7 +57,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="7" class="text-center text-muted py-4">No farms found.</td>
+                                <td colspan="8" class="text-center text-muted py-4">No farms found.</td>
                             </tr>
                         @endforelse
                     </tbody>

@@ -7,12 +7,13 @@ FarmHisab is being built in planned steps so the foundation stays clean and each
 - Step 1: Laravel 9 foundation with MySQL, Blade, Bootstrap 5, vanilla JavaScript, Vite, Sanctum, planning docs, and base folders.
 - Step 2: Web authentication, Spatie roles and permissions, role-based dashboard navigation, and basic admin user management.
 - Step 3A: Basic Farm Management with farm listing, search, create, edit, active status, and creator tracking.
+- Step 3B: Basic Shed Management with shed listing, search, farm/status filters, create, edit, active status, capacity, and creator tracking.
 
 ## Planned Modules
 
 - Authentication and user roles
 - Basic farm management
-- Shed management
+- Basic shed management
 - Bird types and breeds
 - Batch management
 - Daily farm records

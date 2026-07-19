@@ -17,6 +17,7 @@ class FarmController extends Controller
 
         $farms = Farm::query()
             ->with('createdBy')
+            ->withCount('sheds')
             ->when($search, function ($query) use ($search) {
                 $query->where(function ($query) use ($search) {
                     $query->where('name', 'like', "%{$search}%")

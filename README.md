@@ -237,6 +237,26 @@ Run the Farm Management tests with:
 php artisan test --filter=FarmManagementTest
 ```
 
+## Shed Management
+
+Step 3B adds basic Shed Management only. Bird types, breeds, batches, bird counts, and other poultry business modules remain pending.
+
+Sheds belong to farms. A farm can have many sheds, and each shed has one parent farm.
+
+Shed web routes:
+
+- `sheds.index` - shed list, search, farm filter, and status filter, requires `farms.view`
+- `sheds.create` - create form, requires `farms.manage`
+- `sheds.store` - save new shed, requires `farms.manage`
+- `sheds.edit` - edit form, requires `farms.manage`
+- `sheds.update` - update shed, requires `farms.manage`
+
+Run the Shed Management tests with:
+
+```bash
+php artisan test --filter=ShedManagementTest
+```
+
 ## Android API
 
 Laravel Sanctum is installed for future Android token authentication. Android API authorization will reuse the same permission model. No Android business API endpoints are implemented yet.

@@ -49,4 +49,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Farm::class, 'created_by');
     }
+
+    public function createdSheds(): HasMany
+    {
+        return $this->hasMany(Shed::class, 'created_by');
+    }
 }
