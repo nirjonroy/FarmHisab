@@ -147,6 +147,12 @@ return [
             'self_parent' => 'A category cannot be its own parent.',
             'parent_with_children' => 'A category with child categories cannot be moved under another parent.',
         ],
+        'name_en' => [
+            'required_without' => 'At least one category name is required.',
+        ],
+        'name_bn' => [
+            'required_without' => 'At least one category name is required.',
+        ],
     ],
 
     /*

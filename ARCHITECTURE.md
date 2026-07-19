@@ -24,10 +24,12 @@ Locale is resolved for web requests from the authenticated user's saved `users.l
 
 Existing module labels for Users, Farms, Sheds, and Farm Categories use module language files such as `lang/en/farms.php` and `lang/bn/farms.php`. Controllers use those same module keys for CRUD flash messages.
 
+Farm Category records support dynamic bilingual fields: `name_en`, `name_bn`, `description_en`, and `description_bn`. The UI reads `$category->display_name` and `$category->display_description` based on the active locale. The original `name` and `description` fields remain temporarily for backward compatibility while the category module transitions to bilingual data.
+
 Static interface text and dynamic database records are separate translation concerns:
 
 - Static interface text belongs in Laravel language files.
-- Dynamic database records remain language-independent in this step and should later use separate bilingual fields such as `name_en`, `name_bn`, `description_en`, and `description_bn`.
+- Dynamic database records should use separate bilingual fields such as `name_en`, `name_bn`, `description_en`, and `description_bn` when that module reaches its bilingual-data step.
 
 Future Android APIs may return both stored values, such as `name_en` and `name_bn`, plus a computed `display_name` based on the requested locale. These dynamic bilingual database fields are not implemented yet.
 

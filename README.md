@@ -150,7 +150,16 @@ __('farms.title')
 
 Locale preference is stored in the session for guests. For authenticated users, it is also stored in `users.locale`.
 
-Dynamic database records are not translated yet and should not use language files. Future translated data should use separate fields such as `name_en`, `name_bn`, `description_en`, and `description_bn`. Future Android APIs may return those fields plus a `display_name` based on the requested locale.
+Dynamic database records should not use language files. Translated data should use separate fields such as `name_en`, `name_bn`, `description_en`, and `description_bn`. Future Android APIs may return those fields plus a `display_name` based on the requested locale.
+
+Farm Categories now store bilingual names and descriptions:
+
+```php
+$category->display_name;
+$category->display_description;
+```
+
+The `display_name` accessor uses the active locale and falls back safely to the other language, then the legacy `name` field. The legacy `name` and `description` columns remain for compatibility.
 
 Language route:
 

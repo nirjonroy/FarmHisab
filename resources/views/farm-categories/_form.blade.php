@@ -1,9 +1,15 @@
 @csrf
 <div class="row g-3">
     <div class="col-md-6">
-        <label for="name" class="form-label">{{ __('farm_categories.category_name') }}</label>
-        <input id="name" type="text" name="name" value="{{ old('name', $farmCategory->name ?? '') }}" class="form-control @error('name') is-invalid @enderror" required>
-        @error('name')<div class="invalid-feedback">{{ $message }}</div>@enderror
+        <label for="name_en" class="form-label">{{ __('farm_categories.english_name') }}</label>
+        <input id="name_en" type="text" name="name_en" value="{{ old('name_en', $farmCategory->name_en ?? '') }}" class="form-control @error('name_en') is-invalid @enderror">
+        @error('name_en')<div class="invalid-feedback">{{ $message }}</div>@enderror
+    </div>
+
+    <div class="col-md-6">
+        <label for="name_bn" class="form-label">{{ __('farm_categories.bengali_name') }}</label>
+        <input id="name_bn" type="text" name="name_bn" value="{{ old('name_bn', $farmCategory->name_bn ?? '') }}" class="form-control @error('name_bn') is-invalid @enderror">
+        @error('name_bn')<div class="invalid-feedback">{{ $message }}</div>@enderror
     </div>
 
     <div class="col-md-6">
@@ -12,7 +18,7 @@
             <option value="">{{ __('farm_categories.no_parent_top_level') }}</option>
             @foreach ($parentCategories as $parentCategory)
                 <option value="{{ $parentCategory->id }}" @selected((int) old('parent_id', $farmCategory->parent_id ?? '') === $parentCategory->id)>
-                    {{ $parentCategory->name }} @if (! $parentCategory->is_active) ({{ __('common.inactive') }}) @endif
+                    {{ $parentCategory->display_name }} @if (! $parentCategory->is_active) ({{ __('common.inactive') }}) @endif
                 </option>
             @endforeach
         </select>
@@ -39,9 +45,15 @@
     </div>
 
     <div class="col-12">
-        <label for="description" class="form-label">{{ __('farm_categories.description') }}</label>
-        <textarea id="description" name="description" rows="3" class="form-control @error('description') is-invalid @enderror">{{ old('description', $farmCategory->description ?? '') }}</textarea>
-        @error('description')<div class="invalid-feedback">{{ $message }}</div>@enderror
+        <label for="description_en" class="form-label">{{ __('farm_categories.english_description') }}</label>
+        <textarea id="description_en" name="description_en" rows="3" class="form-control @error('description_en') is-invalid @enderror">{{ old('description_en', $farmCategory->description_en ?? '') }}</textarea>
+        @error('description_en')<div class="invalid-feedback">{{ $message }}</div>@enderror
+    </div>
+
+    <div class="col-12">
+        <label for="description_bn" class="form-label">{{ __('farm_categories.bengali_description') }}</label>
+        <textarea id="description_bn" name="description_bn" rows="3" class="form-control @error('description_bn') is-invalid @enderror">{{ old('description_bn', $farmCategory->description_bn ?? '') }}</textarea>
+        @error('description_bn')<div class="invalid-feedback">{{ $message }}</div>@enderror
     </div>
 
     <div class="col-12">

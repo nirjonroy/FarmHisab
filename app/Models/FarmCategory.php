@@ -15,8 +15,12 @@ class FarmCategory extends Model
     protected $fillable = [
         'parent_id',
         'name',
+        'name_en',
+        'name_bn',
         'slug',
         'description',
+        'description_en',
+        'description_bn',
         'icon',
         'sort_order',
         'is_active',
@@ -66,5 +70,23 @@ class FarmCategory extends Model
     public function hasChildren(): bool
     {
         return $this->children()->exists();
+    }
+
+    public function getDisplayNameAttribute(): string
+    {
+        if (app()->getLocale() === 'bn') {
+            return $this->name_bn ?: $this->name_en ?: $this->name;
+        }
+
+        return $this->name_en ?: $this->name_bn ?: $this->name;
+    }
+
+    public function getDisplayDescriptionAttribute(): ?string
+    {
+        if (app()->getLocale() === 'bn') {
+            return $this->description_bn ?: $this->description_en ?: $this->description;
+        }
+
+        return $this->description_en ?: $this->description_bn ?: $this->description;
     }
 }

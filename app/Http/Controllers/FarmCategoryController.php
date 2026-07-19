@@ -24,6 +24,8 @@ class FarmCategoryController extends Controller
             ->when($search, function ($query) use ($search) {
                 $query->where(function ($query) use ($search) {
                     $query->where('name', 'like', "%{$search}%")
+                        ->orWhere('name_en', 'like', "%{$search}%")
+                        ->orWhere('name_bn', 'like', "%{$search}%")
                         ->orWhere('slug', 'like', "%{$search}%");
                 });
             })
@@ -87,6 +89,8 @@ class FarmCategoryController extends Controller
 
     private function payload(array $data): array
     {
+        $data['name'] = ($data['name_en'] ?? null) ?: ($data['name_bn'] ?? null);
+        $data['description'] = ($data['description_en'] ?? null) ?: ($data['description_bn'] ?? null) ?: null;
         $data['is_active'] = (bool) ($data['is_active'] ?? false);
         $data['sort_order'] = (int) ($data['sort_order'] ?? 0);
 

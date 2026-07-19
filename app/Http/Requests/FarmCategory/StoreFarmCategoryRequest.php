@@ -17,11 +17,17 @@ class StoreFarmCategoryRequest extends FormRequest
 
     protected function prepareForValidation(): void
     {
+        $nameEn = $this->input('name_en') ?: $this->input('name');
+        $nameBn = $this->input('name_bn');
+        $legacyName = $nameEn ?: $nameBn ?: $this->input('name');
         $slug = $this->filled('slug')
             ? Str::slug($this->input('slug'))
-            : $this->uniqueSlug(Str::slug($this->input('name', '')) ?: 'category');
+            : $this->uniqueSlug(Str::slug($legacyName ?: '') ?: 'category');
 
         $this->merge([
+            'name_en' => $nameEn,
+            'name_bn' => $nameBn,
+            'name' => $legacyName,
             'slug' => $slug,
             'sort_order' => $this->input('sort_order', 0),
             'parent_id' => $this->filled('parent_id') ? $this->input('parent_id') : null,
@@ -32,8 +38,12 @@ class StoreFarmCategoryRequest extends FormRequest
     {
         return [
             'parent_id' => ['nullable', 'integer', Rule::exists('farm_categories', 'id')],
+            'name_en' => ['required_without:name_bn', 'nullable', 'string', 'max:100'],
+            'name_bn' => ['required_without:name_en', 'nullable', 'string', 'max:100'],
             'name' => ['required', 'string', 'max:100'],
             'slug' => ['nullable', 'string', 'max:120', Rule::unique('farm_categories', 'slug')],
+            'description_en' => ['nullable', 'string'],
+            'description_bn' => ['nullable', 'string'],
             'description' => ['nullable', 'string'],
             'icon' => ['nullable', 'string', 'max:100'],
             'sort_order' => ['nullable', 'integer', 'min:0'],
@@ -46,8 +56,12 @@ class StoreFarmCategoryRequest extends FormRequest
         return [
             'parent_id' => __('farm_categories.parent_category'),
             'name' => __('farm_categories.category_name'),
+            'name_en' => __('farm_categories.english_name'),
+            'name_bn' => __('farm_categories.bengali_name'),
             'slug' => __('farm_categories.slug'),
             'description' => __('farm_categories.description'),
+            'description_en' => __('farm_categories.english_description'),
+            'description_bn' => __('farm_categories.bengali_description'),
             'icon' => __('farm_categories.icon'),
             'sort_order' => __('farm_categories.sort_order'),
             'is_active' => __('farm_categories.status'),

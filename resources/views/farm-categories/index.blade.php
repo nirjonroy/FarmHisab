@@ -18,7 +18,7 @@
                         <select name="parent_id" class="form-select">
                             <option value="">{{ __('farm_categories.filter_by_parent') }}</option>
                             @foreach ($parentCategories as $parentCategory)
-                                <option value="{{ $parentCategory->id }}" @selected((int) $parentId === $parentCategory->id)>{{ $parentCategory->name }}</option>
+                                <option value="{{ $parentCategory->id }}" @selected((int) $parentId === $parentCategory->id)>{{ $parentCategory->display_name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -60,6 +60,10 @@
                     </thead>
                     <tbody>
                         @forelse ($categories as $category)
+                            @php
+                                $alternateName = app()->getLocale() === 'bn' ? $category->name_en : $category->name_bn;
+                                $showAlternateName = $alternateName && $alternateName !== $category->display_name;
+                            @endphp
                             <tr>
                                 <td>
                                     @if ($category->parent_id)
@@ -68,9 +72,12 @@
                                     @else
                                         <span class="badge text-bg-success me-2">{{ __('farm_categories.top_level') }}</span>
                                     @endif
-                                    {{ $category->name }}
+                                    {{ $category->display_name }}
+                                    @if ($showAlternateName)
+                                        <div class="small text-muted ms-4">{{ $alternateName }}</div>
+                                    @endif
                                 </td>
-                                <td>{{ $category->parent?->name ?: __('farm_categories.no_parent') }}</td>
+                                <td>{{ $category->parent?->display_name ?: __('farm_categories.no_parent') }}</td>
                                 <td><span class="fw-semibold">{{ $category->slug }}</span></td>
                                 <td>{{ $category->children_count }}</td>
                                 <td>
