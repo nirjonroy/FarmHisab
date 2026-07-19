@@ -71,6 +71,11 @@ class User extends Authenticatable
         return $this->hasMany(MeasurementUnit::class, 'created_by');
     }
 
+    public function createdProducts(): HasMany
+    {
+        return $this->hasMany(Product::class, 'created_by');
+    }
+
     public function setLocaleAttribute(?string $value): void
     {
         $supportedLocales = config('localization.supported_locales', ['bn', 'en']);

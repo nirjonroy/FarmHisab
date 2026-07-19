@@ -12,6 +12,7 @@ use App\Http\Controllers\FarmController;
 use App\Http\Controllers\FarmVarietyController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\MeasurementUnitController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShedController;
 use Illuminate\Support\Facades\Route;
 
@@ -90,6 +91,14 @@ Route::middleware('auth')->group(function () {
         Route::post('/', [MeasurementUnitController::class, 'store'])->middleware('permission:measurement-units.manage')->name('store');
         Route::get('/{measurementUnit}/edit', [MeasurementUnitController::class, 'edit'])->middleware('permission:measurement-units.manage')->name('edit');
         Route::put('/{measurementUnit}', [MeasurementUnitController::class, 'update'])->middleware('permission:measurement-units.manage')->name('update');
+    });
+
+    Route::prefix('products')->name('products.')->group(function () {
+        Route::get('/', [ProductController::class, 'index'])->middleware('permission:products.view')->name('index');
+        Route::get('/create', [ProductController::class, 'create'])->middleware('permission:products.manage')->name('create');
+        Route::post('/', [ProductController::class, 'store'])->middleware('permission:products.manage')->name('store');
+        Route::get('/{product}/edit', [ProductController::class, 'edit'])->middleware('permission:products.manage')->name('edit');
+        Route::put('/{product}', [ProductController::class, 'update'])->middleware('permission:products.manage')->name('update');
     });
 
     Route::prefix('admin')->name('admin.')->middleware('permission:users.view')->group(function () {

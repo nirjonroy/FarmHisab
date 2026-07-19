@@ -8,6 +8,7 @@ return [
     'farm_categories' => 'ব্যবসার ক্যাটাগরি',
     'farm_varieties' => 'জাত ও প্রজাতি',
     'measurement_units' => 'পরিমাপের একক',
+    'products' => 'পণ্যসমূহ',
     'batches' => 'ব্যাচ',
     'daily_records' => 'দৈনিক রেকর্ড',
     'feed' => 'ফিড',

@@ -30,6 +30,8 @@ Farm Category represents the business type hierarchy, such as Poultry -> Broiler
 
 Measurement Units define reusable quantity units such as kilogram, litre, bag, piece, and bundle. Future products will reference a base measurement unit, transactions may later support unit conversion, and stock quantities should use decimal values according to each unit's `decimal_places` setting.
 
+Product is the master record for goods such as fertilizer, seed, paddy, bamboo, feed, medicine, eggs, and fish. Each Product belongs to a child FarmCategory that identifies its business category and to a MeasurementUnit that identifies its base unit. Farm Variety and Product represent different concepts: varieties describe biological breeds, species, strains, or crop varieties, while products describe goods that may later be bought, used, produced, or sold. Current stock is not stored directly on products; stock will later be calculated from inventory transactions.
+
 Static interface text and dynamic database records are separate translation concerns:
 
 - Static interface text belongs in Laravel language files.

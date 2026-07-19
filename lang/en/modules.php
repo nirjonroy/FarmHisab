@@ -8,6 +8,7 @@ return [
     'farm_categories' => 'Business Categories',
     'farm_varieties' => 'Breeds & Species',
     'measurement_units' => 'Measurement Units',
+    'products' => 'Products',
     'batches' => 'Batches',
     'daily_records' => 'Daily Records',
     'feed' => 'Feed',

@@ -211,6 +211,8 @@ Manager receives:
 - `farm-varieties.manage`
 - `measurement-units.view`
 - `measurement-units.manage`
+- `products.view`
+- `products.manage`
 - `batches.view`
 - `batches.manage`
 - `daily-records.view`
@@ -243,6 +245,7 @@ Worker receives:
 - `farm-categories.view`
 - `farm-varieties.view`
 - `measurement-units.view`
+- `products.view`
 - `batches.view`
 - `daily-records.view`
 - `daily-records.create`
@@ -433,6 +436,28 @@ Seed default measurement units:
 ```bash
 php artisan db:seed --class=MeasurementUnitSeeder
 ```
+
+## Product Catalog
+
+Products are master records for goods such as fertilizer, seed, paddy, rice, bamboo, feed, medicine, eggs, and fish. Each product belongs to a child Business Category and uses a base Measurement Unit.
+
+Usage types:
+
+- `input` - goods used in farming or production
+- `output` - goods produced or collected for sale
+- `both` - goods that may be purchased/resold and also produced or collected
+
+Product web routes:
+
+- `products.index` - product list, search, and filters, requires `products.view`
+- `products.create` - create form, requires `products.manage`
+- `products.store` - save new product, requires `products.manage`
+- `products.edit` - edit form, requires `products.manage`
+- `products.update` - update product, requires `products.manage`
+
+Manager receives `products.view` and `products.manage`. Worker receives `products.view`.
+
+This step does not track current stock, purchase prices, sale prices, purchases, sales, or inventory transactions.
 
 ## Android API
 

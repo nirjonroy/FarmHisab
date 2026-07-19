@@ -18,6 +18,9 @@
     @can('measurement-units.view')
         <a class="list-group-item list-group-item-action {{ request()->routeIs('measurement-units.*') ? 'active' : '' }}" href="{{ route('measurement-units.index') }}">{{ __('modules.measurement_units') }}</a>
     @endcan
+    @can('products.view')
+        <a class="list-group-item list-group-item-action {{ request()->routeIs('products.*') ? 'active' : '' }}" href="{{ route('products.index') }}">{{ __('modules.products') }}</a>
+    @endcan
     @can('batches.view')
         <a class="list-group-item list-group-item-action" href="{{ route('coming-soon', 'batches') }}">{{ __('modules.batches') }}</a>
     @endcan
