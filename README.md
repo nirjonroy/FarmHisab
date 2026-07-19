@@ -239,7 +239,7 @@ php artisan test --filter=FarmManagementTest
 
 ## Shed Management
 
-Step 3B adds basic Shed Management only. Bird types, breeds, batches, bird counts, and other poultry business modules remain pending.
+Step 3B adds basic Shed Management only. Category, breed, batch, bird count, and other production modules remain separate steps.
 
 Sheds belong to farms. A farm can have many sheds, and each shed has one parent farm.
 
@@ -255,6 +255,42 @@ Run the Shed Management tests with:
 
 ```bash
 php artisan test --filter=ShedManagementTest
+```
+
+## Dynamic Farm Categories
+
+Step 3C adds dynamic Farm Category Management. FarmHisab is not limited to poultry; categories can represent poultry, livestock, aquaculture, and future farming domains.
+
+Category hierarchy is limited to two levels in this step:
+
+- Poultry
+  - Broiler
+  - Sonali
+  - Duck
+- Livestock
+  - Cattle
+  - Goat
+- Aquaculture
+  - Fish
+
+Farm category web routes:
+
+- `farm-categories.index` - category list, search, parent filter, level filter, and status filter, requires `farm-categories.view`
+- `farm-categories.create` - create form, requires `farm-categories.manage`
+- `farm-categories.store` - save new category, requires `farm-categories.manage`
+- `farm-categories.edit` - edit form, requires `farm-categories.manage`
+- `farm-categories.update` - update category, requires `farm-categories.manage`
+
+Seed default categories:
+
+```bash
+php artisan db:seed --class=FarmCategorySeeder
+```
+
+Run category tests:
+
+```bash
+php artisan test --filter=FarmCategoryManagementTest
 ```
 
 ## Android API

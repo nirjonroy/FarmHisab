@@ -10,6 +10,8 @@ The application uses standard Laravel conventions for routing, middleware, servi
 
 MySQL is the configured application database. Step 2 adds only authentication and authorization structures: Spatie permission tables and an `is_active` flag on `users`.
 
+Farm setup data supports multiple farm domains, not only poultry. `farm_categories` stores a two-level hierarchy for top-level categories such as Poultry, Livestock, and Aquaculture, with direct child categories such as Broiler, Cattle, and Fish. Categories and breed/species records are separate concepts: categories describe the operational farming type, while future breed/species records will describe more specific biological classifications. Future batch records are expected to reference a farm category.
+
 ## Blade Web Dashboard
 
 Blade renders the web dashboard. Bootstrap 5 is installed through Vite, and vanilla JavaScript is used through the existing Vite entrypoint. No Tailwind, React, Vue, Livewire, or Inertia stack is used.

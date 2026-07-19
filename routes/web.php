@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ComingSoonController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FarmCategoryController;
 use App\Http\Controllers\FarmController;
 use App\Http\Controllers\ShedController;
 use Illuminate\Support\Facades\Route;
@@ -60,6 +61,14 @@ Route::middleware('auth')->group(function () {
         Route::post('/', [ShedController::class, 'store'])->middleware('permission:farms.manage')->name('store');
         Route::get('/{shed}/edit', [ShedController::class, 'edit'])->middleware('permission:farms.manage')->name('edit');
         Route::put('/{shed}', [ShedController::class, 'update'])->middleware('permission:farms.manage')->name('update');
+    });
+
+    Route::prefix('farm-categories')->name('farm-categories.')->group(function () {
+        Route::get('/', [FarmCategoryController::class, 'index'])->middleware('permission:farm-categories.view')->name('index');
+        Route::get('/create', [FarmCategoryController::class, 'create'])->middleware('permission:farm-categories.manage')->name('create');
+        Route::post('/', [FarmCategoryController::class, 'store'])->middleware('permission:farm-categories.manage')->name('store');
+        Route::get('/{farmCategory}/edit', [FarmCategoryController::class, 'edit'])->middleware('permission:farm-categories.manage')->name('edit');
+        Route::put('/{farmCategory}', [FarmCategoryController::class, 'update'])->middleware('permission:farm-categories.manage')->name('update');
     });
 
     Route::prefix('admin')->name('admin.')->middleware('permission:users.view')->group(function () {
