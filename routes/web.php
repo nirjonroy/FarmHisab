@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ComingSoonController;
 use App\Http\Controllers\DailyRecordController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\FarmCategoryController;
 use App\Http\Controllers\FarmController;
 use App\Http\Controllers\FarmVarietyController;
@@ -113,6 +114,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('medicine', MedicineRecordController::class)->parameters(['medicine' => 'medicineRecord']);
     Route::resource('mortality', MortalityRecordController::class)->parameters(['mortality' => 'mortalityRecord']);
     Route::resource('weights', WeightRecordController::class)->parameters(['weights' => 'weightRecord']);
+    Route::resource('expenses', ExpenseController::class);
 
     Route::prefix('admin')->name('admin.')->middleware('permission:users.view')->group(function () {
         Route::get('/users', [UserController::class, 'index'])->name('users.index');

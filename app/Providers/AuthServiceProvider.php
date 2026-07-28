@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Batch;
 use App\Models\DailyRecord;
+use App\Models\Expense;
 use App\Models\FeedRecord;
 use App\Models\MedicineRecord;
 use App\Models\MortalityRecord;
@@ -11,6 +12,7 @@ use App\Models\User;
 use App\Models\WeightRecord;
 use App\Policies\BatchPolicy;
 use App\Policies\DailyRecordPolicy;
+use App\Policies\ExpensePolicy;
 use App\Policies\FeedRecordPolicy;
 use App\Policies\MedicineRecordPolicy;
 use App\Policies\MortalityRecordPolicy;
@@ -28,6 +30,7 @@ class AuthServiceProvider extends ServiceProvider
     protected $policies = [
         Batch::class => BatchPolicy::class,
         DailyRecord::class => DailyRecordPolicy::class,
+        Expense::class => ExpensePolicy::class,
         FeedRecord::class => FeedRecordPolicy::class,
         MedicineRecord::class => MedicineRecordPolicy::class,
         MortalityRecord::class => MortalityRecordPolicy::class,
