@@ -50,6 +50,11 @@ class FarmCategory extends Model
         return $this->hasMany(FarmVariety::class, 'farm_category_id');
     }
 
+    public function batches(): HasMany
+    {
+        return $this->hasMany(Batch::class, 'bird_type_id');
+    }
+
     public function createdBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by');

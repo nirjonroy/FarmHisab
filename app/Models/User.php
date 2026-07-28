@@ -76,6 +76,11 @@ class User extends Authenticatable
         return $this->hasMany(Product::class, 'created_by');
     }
 
+    public function createdBatches(): HasMany
+    {
+        return $this->hasMany(Batch::class, 'created_by');
+    }
+
     public function setLocaleAttribute(?string $value): void
     {
         $supportedLocales = config('localization.supported_locales', ['bn', 'en']);

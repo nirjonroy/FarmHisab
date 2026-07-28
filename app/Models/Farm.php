@@ -37,4 +37,9 @@ class Farm extends Model
     {
         return $this->hasMany(Shed::class);
     }
+
+    public function batches(): HasMany
+    {
+        return $this->hasMany(Batch::class);
+    }
 }

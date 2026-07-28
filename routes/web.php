@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\BatchController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ComingSoonController;
+use App\Http\Controllers\DailyRecordController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FarmCategoryController;
 use App\Http\Controllers\FarmController;
@@ -100,6 +102,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/{product}/edit', [ProductController::class, 'edit'])->middleware('permission:products.manage')->name('edit');
         Route::put('/{product}', [ProductController::class, 'update'])->middleware('permission:products.manage')->name('update');
     });
+
+    Route::resource('batches', BatchController::class);
+    Route::resource('daily-records', DailyRecordController::class);
 
     Route::prefix('admin')->name('admin.')->middleware('permission:users.view')->group(function () {
         Route::get('/users', [UserController::class, 'index'])->name('users.index');

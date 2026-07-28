@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class FarmVariety extends Model
 {
@@ -37,6 +38,11 @@ class FarmVariety extends Model
     public function createdBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by');
+    }
+
+    public function batches(): HasMany
+    {
+        return $this->hasMany(Batch::class, 'breed_id');
     }
 
     public function getDisplayNameAttribute(): string

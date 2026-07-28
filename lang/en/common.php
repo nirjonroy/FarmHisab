@@ -8,6 +8,8 @@ return [
     'save' => 'Save',
     'cancel' => 'Cancel',
     'edit' => 'Edit',
+    'view' => 'View',
+    'delete' => 'Delete',
     'create' => 'Create',
     'search' => 'Search',
     'filter' => 'Filter',

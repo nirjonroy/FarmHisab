@@ -44,5 +44,6 @@
             @include('partials.sidebar')
         </div>
     </div>
+    @stack('scripts')
 </body>
 </html>

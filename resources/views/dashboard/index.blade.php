@@ -4,9 +4,6 @@
 @section('page_title', __('dashboard.title'))
 
 @section('content')
-    <div class="alert alert-warning" role="alert">
-        {{ __('dashboard.placeholder_notice') }}
-    </div>
     <div class="row g-3">
         @foreach ($metrics as $label => $value)
             <div class="col-md-6 col-xl-4">

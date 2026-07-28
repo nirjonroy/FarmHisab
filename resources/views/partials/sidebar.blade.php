@@ -22,10 +22,10 @@
         <a class="list-group-item list-group-item-action {{ request()->routeIs('products.*') ? 'active' : '' }}" href="{{ route('products.index') }}">{{ __('modules.products') }}</a>
     @endcan
     @can('batches.view')
-        <a class="list-group-item list-group-item-action" href="{{ route('coming-soon', 'batches') }}">{{ __('modules.batches') }}</a>
+        <a class="list-group-item list-group-item-action {{ request()->routeIs('batches.*') ? 'active' : '' }}" href="{{ route('batches.index') }}">{{ __('modules.batches') }}</a>
     @endcan
     @can('daily-records.view')
-        <a class="list-group-item list-group-item-action" href="{{ route('coming-soon', 'daily-records') }}">{{ __('modules.daily_records') }}</a>
+        <a class="list-group-item list-group-item-action {{ request()->routeIs('daily-records.*') ? 'active' : '' }}" href="{{ route('daily-records.index') }}">{{ __('modules.daily_records') }}</a>
     @endcan
     @can('feed.view')
         <a class="list-group-item list-group-item-action" href="{{ route('coming-soon', 'feed') }}">{{ __('modules.feed') }}</a>
