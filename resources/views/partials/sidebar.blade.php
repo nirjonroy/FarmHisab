@@ -51,7 +51,21 @@
         <a class="list-group-item list-group-item-action {{ request()->routeIs('inventory.*') ? 'active' : '' }}" href="{{ route('inventory.index') }}">{{ __('modules.inventory') }}</a>
     @endcan
     @can('reports.view')
-        <a class="list-group-item list-group-item-action" href="{{ route('coming-soon', 'reports') }}">{{ __('modules.reports') }}</a>
+        @php($reportsOpen = request()->routeIs('reports.*'))
+        <details class="sidebar-group" {{ $reportsOpen ? 'open' : '' }}>
+            <summary class="list-group-item list-group-item-action sidebar-group-toggle {{ $reportsOpen ? 'active' : '' }}">
+                <span>{{ __('modules.reports') }}</span>
+                <span class="sidebar-group-chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="sidebar-submenu">
+                <a class="sidebar-submenu-item {{ request()->routeIs('reports.index') ? 'active' : '' }}" href="{{ route('reports.index') }}">{{ __('reports.all_reports') }}</a>
+                @foreach (config('reports.items', []) as $key => $report)
+                    <a class="sidebar-submenu-item {{ request()->routeIs('reports.show') && request()->route('report') === $key ? 'active' : '' }}" href="{{ route('reports.show', $key) }}">
+                        {{ __($report['label']) }}
+                    </a>
+                @endforeach
+            </div>
+        </details>
     @endcan
     @can('settings.manage')
         <a class="list-group-item list-group-item-action" href="{{ route('coming-soon', 'settings') }}">{{ __('modules.settings') }}</a>

@@ -20,6 +20,7 @@ use App\Http\Controllers\MeasurementUnitController;
 use App\Http\Controllers\MedicineRecordController;
 use App\Http\Controllers\MortalityRecordController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\ShedController;
 use App\Http\Controllers\WeightRecordController;
@@ -119,6 +120,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('expenses', ExpenseController::class);
     Route::resource('sales', SaleController::class);
     Route::resource('inventory', InventoryMovementController::class)->parameters(['inventory' => 'inventoryMovement']);
+    Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
+    Route::get('/reports/{report}', [ReportController::class, 'show'])->name('reports.show');
 
     Route::prefix('admin')->name('admin.')->middleware('permission:users.view')->group(function () {
         Route::get('/users', [UserController::class, 'index'])->name('users.index');
