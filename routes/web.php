@@ -15,6 +15,7 @@ use App\Http\Controllers\FarmVarietyController;
 use App\Http\Controllers\FeedRecordController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\MeasurementUnitController;
+use App\Http\Controllers\MedicineRecordController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShedController;
 use Illuminate\Support\Facades\Route;
@@ -107,6 +108,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('batches', BatchController::class);
     Route::resource('daily-records', DailyRecordController::class);
     Route::resource('feed', FeedRecordController::class)->parameters(['feed' => 'feedRecord']);
+    Route::resource('medicine', MedicineRecordController::class)->parameters(['medicine' => 'medicineRecord']);
 
     Route::prefix('admin')->name('admin.')->middleware('permission:users.view')->group(function () {
         Route::get('/users', [UserController::class, 'index'])->name('users.index');

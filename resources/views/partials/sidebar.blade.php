@@ -33,7 +33,7 @@
         <a class="list-group-item list-group-item-action {{ request()->routeIs('feed.*') ? 'active' : '' }}" href="{{ route('feed.index') }}">{{ __('modules.feed_usage') }}</a>
     @endcan
     @can('medicine.view')
-        <a class="list-group-item list-group-item-action" href="{{ route('coming-soon', 'medicine') }}">{{ __('modules.medicine_vaccines') }}</a>
+        <a class="list-group-item list-group-item-action {{ request()->routeIs('medicine.*') ? 'active' : '' }}" href="{{ route('medicine.index') }}">{{ __('modules.medicine_vaccines') }}</a>
     @endcan
     @can('mortality.view')
         <a class="list-group-item list-group-item-action" href="{{ route('coming-soon', 'mortality') }}">{{ __('modules.mortality') }}</a>
