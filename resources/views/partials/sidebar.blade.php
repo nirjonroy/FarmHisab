@@ -68,6 +68,6 @@
         </details>
     @endcan
     @can('settings.manage')
-        <a class="list-group-item list-group-item-action" href="{{ route('coming-soon', 'settings') }}">{{ __('modules.settings') }}</a>
+        <a class="list-group-item list-group-item-action {{ request()->routeIs('settings.*') ? 'active' : '' }}" href="{{ route('settings.edit') }}">{{ __('modules.settings') }}</a>
     @endcan
 </nav>

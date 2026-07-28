@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title', __('common.app_name'))</title>
+    <title>@yield('title', $appName ?? __('common.app_name'))</title>
     @vite('resources/js/app.js')
 </head>
 <body class="app-shell">
@@ -13,7 +13,7 @@
         <div class="row g-0">
             <aside class="col-xl-2 col-lg-3 d-none d-lg-block app-sidebar">
                 <div class="sidebar-panel">
-                    <div class="sidebar-label">{{ __('common.app_name') }}</div>
+                    <div class="sidebar-label">{{ $appName ?? __('common.app_name') }}</div>
                     @include('partials.sidebar')
                 </div>
             </aside>
@@ -43,7 +43,7 @@
     <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileSidebar" aria-labelledby="mobileSidebarLabel">
         <div class="offcanvas-header mobile-sidebar-header">
             <div>
-                <h5 class="offcanvas-title" id="mobileSidebarLabel">{{ __('common.app_name') }}</h5>
+                <h5 class="offcanvas-title" id="mobileSidebarLabel">{{ $appName ?? __('common.app_name') }}</h5>
                 <div class="mobile-sidebar-subtitle">{{ auth()->user()->roles->pluck('name')->join(', ') ?: __('common.no_role') }}</div>
             </div>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="{{ __('common.close') }}"></button>

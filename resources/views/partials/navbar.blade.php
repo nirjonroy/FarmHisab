@@ -3,7 +3,7 @@
         <button class="btn nav-icon-button d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar" aria-controls="mobileSidebar" aria-label="Menu">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand app-brand" href="{{ route('dashboard') }}">{{ __('common.app_name') }}</a>
+        <a class="navbar-brand app-brand" href="{{ route('dashboard') }}">{{ $appName ?? __('common.app_name') }}</a>
 
         <div class="topbar-actions">
             @include('partials.language-switcher', ['buttonClass' => 'btn-outline-light app-topbar-button'])

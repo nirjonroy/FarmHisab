@@ -22,6 +22,7 @@ use App\Http\Controllers\MortalityRecordController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SaleController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\ShedController;
 use App\Http\Controllers\WeightRecordController;
 use Illuminate\Support\Facades\Route;
@@ -122,6 +123,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('inventory', InventoryMovementController::class)->parameters(['inventory' => 'inventoryMovement']);
     Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
     Route::get('/reports/{report}', [ReportController::class, 'show'])->name('reports.show');
+    Route::get('/settings', [SettingController::class, 'edit'])->name('settings.edit');
+    Route::put('/settings', [SettingController::class, 'update'])->name('settings.update');
 
     Route::prefix('admin')->name('admin.')->middleware('permission:users.view')->group(function () {
         Route::get('/users', [UserController::class, 'index'])->name('users.index');
