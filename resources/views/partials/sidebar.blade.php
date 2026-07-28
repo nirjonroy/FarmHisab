@@ -36,7 +36,7 @@
         <a class="list-group-item list-group-item-action {{ request()->routeIs('medicine.*') ? 'active' : '' }}" href="{{ route('medicine.index') }}">{{ __('modules.medicine_vaccines') }}</a>
     @endcan
     @can('mortality.view')
-        <a class="list-group-item list-group-item-action" href="{{ route('coming-soon', 'mortality') }}">{{ __('modules.mortality') }}</a>
+        <a class="list-group-item list-group-item-action {{ request()->routeIs('mortality.*') ? 'active' : '' }}" href="{{ route('mortality.index') }}">{{ __('modules.mortality') }}</a>
     @endcan
     @can('weights.view')
         <a class="list-group-item list-group-item-action" href="{{ route('coming-soon', 'weights') }}">{{ __('modules.weight_records') }}</a>
