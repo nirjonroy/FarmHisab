@@ -8,6 +8,7 @@ use App\Models\Expense;
 use App\Models\FeedRecord;
 use App\Models\MedicineRecord;
 use App\Models\MortalityRecord;
+use App\Models\Sale;
 use App\Models\User;
 use App\Models\WeightRecord;
 use App\Policies\BatchPolicy;
@@ -16,6 +17,7 @@ use App\Policies\ExpensePolicy;
 use App\Policies\FeedRecordPolicy;
 use App\Policies\MedicineRecordPolicy;
 use App\Policies\MortalityRecordPolicy;
+use App\Policies\SalePolicy;
 use App\Policies\UserPolicy;
 use App\Policies\WeightRecordPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -34,6 +36,7 @@ class AuthServiceProvider extends ServiceProvider
         FeedRecord::class => FeedRecordPolicy::class,
         MedicineRecord::class => MedicineRecordPolicy::class,
         MortalityRecord::class => MortalityRecordPolicy::class,
+        Sale::class => SalePolicy::class,
         WeightRecord::class => WeightRecordPolicy::class,
         User::class => UserPolicy::class,
     ];

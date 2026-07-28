@@ -45,7 +45,7 @@
         <a class="list-group-item list-group-item-action {{ request()->routeIs('expenses.*') ? 'active' : '' }}" href="{{ route('expenses.index') }}">{{ __('modules.expenses') }}</a>
     @endcan
     @can('sales.view')
-        <a class="list-group-item list-group-item-action" href="{{ route('coming-soon', 'sales') }}">{{ __('modules.sales') }}</a>
+        <a class="list-group-item list-group-item-action {{ request()->routeIs('sales.*') ? 'active' : '' }}" href="{{ route('sales.index') }}">{{ __('modules.sales') }}</a>
     @endcan
     @can('inventory.view')
         <a class="list-group-item list-group-item-action" href="{{ route('coming-soon', 'inventory') }}">{{ __('modules.inventory') }}</a>
