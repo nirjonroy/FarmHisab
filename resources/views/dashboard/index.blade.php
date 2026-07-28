@@ -4,13 +4,21 @@
 @section('page_title', __('dashboard.title'))
 
 @section('content')
-    <div class="row g-3">
+    <div class="dashboard-hero mb-4">
+        <div>
+            <div class="eyebrow">{{ __('common.app_name') }}</div>
+            <h2>{{ __('dashboard.title') }}</h2>
+        </div>
+        <div class="hero-pill">{{ now()->format('Y-m-d') }}</div>
+    </div>
+
+    <div class="row g-3 metric-grid">
         @foreach ($metrics as $label => $value)
-            <div class="col-md-6 col-xl-4">
-                <div class="card border-0 shadow-sm h-100">
+            <div class="col-sm-6 col-xl-3">
+                <div class="card metric-card h-100">
                     <div class="card-body">
-                        <div class="text-muted small">{{ __($label) }}</div>
-                        <div class="display-6 fw-semibold">{{ $value }}</div>
+                        <div class="metric-label">{{ __($label) }}</div>
+                        <div class="metric-value">{{ $value }}</div>
                     </div>
                 </div>
             </div>
