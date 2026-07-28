@@ -4,9 +4,11 @@ namespace App\Providers;
 
 use App\Models\Batch;
 use App\Models\DailyRecord;
+use App\Models\FeedRecord;
 use App\Models\User;
 use App\Policies\BatchPolicy;
 use App\Policies\DailyRecordPolicy;
+use App\Policies\FeedRecordPolicy;
 use App\Policies\UserPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -20,6 +22,7 @@ class AuthServiceProvider extends ServiceProvider
     protected $policies = [
         Batch::class => BatchPolicy::class,
         DailyRecord::class => DailyRecordPolicy::class,
+        FeedRecord::class => FeedRecordPolicy::class,
         User::class => UserPolicy::class,
     ];
 

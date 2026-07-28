@@ -28,9 +28,9 @@
         <a class="list-group-item list-group-item-action {{ request()->routeIs('daily-records.*') ? 'active' : '' }}" href="{{ route('daily-records.index') }}">{{ __('modules.daily_records') }}</a>
     @endcan
     @can('feed.view')
-        <a class="list-group-item list-group-item-action" href="{{ route('coming-soon', 'feed') }}">{{ __('modules.feed') }}</a>
+        <a class="list-group-item list-group-item-action {{ request()->routeIs('feed.*') ? 'active' : '' }}" href="{{ route('feed.index') }}">{{ __('modules.feed') }}</a>
     @elsecan('feed-usage.create')
-        <a class="list-group-item list-group-item-action" href="{{ route('coming-soon', 'feed-usage') }}">{{ __('modules.feed_usage') }}</a>
+        <a class="list-group-item list-group-item-action {{ request()->routeIs('feed.*') ? 'active' : '' }}" href="{{ route('feed.index') }}">{{ __('modules.feed_usage') }}</a>
     @endcan
     @can('medicine.view')
         <a class="list-group-item list-group-item-action" href="{{ route('coming-soon', 'medicine') }}">{{ __('modules.medicine_vaccines') }}</a>
