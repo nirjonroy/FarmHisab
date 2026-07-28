@@ -14,6 +14,7 @@ use App\Http\Controllers\FarmCategoryController;
 use App\Http\Controllers\FarmController;
 use App\Http\Controllers\FarmVarietyController;
 use App\Http\Controllers\FeedRecordController;
+use App\Http\Controllers\InventoryMovementController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\MeasurementUnitController;
 use App\Http\Controllers\MedicineRecordController;
@@ -117,6 +118,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('weights', WeightRecordController::class)->parameters(['weights' => 'weightRecord']);
     Route::resource('expenses', ExpenseController::class);
     Route::resource('sales', SaleController::class);
+    Route::resource('inventory', InventoryMovementController::class)->parameters(['inventory' => 'inventoryMovement']);
 
     Route::prefix('admin')->name('admin.')->middleware('permission:users.view')->group(function () {
         Route::get('/users', [UserController::class, 'index'])->name('users.index');

@@ -6,6 +6,7 @@ use App\Models\Batch;
 use App\Models\DailyRecord;
 use App\Models\Expense;
 use App\Models\FeedRecord;
+use App\Models\InventoryMovement;
 use App\Models\MedicineRecord;
 use App\Models\MortalityRecord;
 use App\Models\Sale;
@@ -15,6 +16,7 @@ use App\Policies\BatchPolicy;
 use App\Policies\DailyRecordPolicy;
 use App\Policies\ExpensePolicy;
 use App\Policies\FeedRecordPolicy;
+use App\Policies\InventoryMovementPolicy;
 use App\Policies\MedicineRecordPolicy;
 use App\Policies\MortalityRecordPolicy;
 use App\Policies\SalePolicy;
@@ -34,6 +36,7 @@ class AuthServiceProvider extends ServiceProvider
         DailyRecord::class => DailyRecordPolicy::class,
         Expense::class => ExpensePolicy::class,
         FeedRecord::class => FeedRecordPolicy::class,
+        InventoryMovement::class => InventoryMovementPolicy::class,
         MedicineRecord::class => MedicineRecordPolicy::class,
         MortalityRecord::class => MortalityRecordPolicy::class,
         Sale::class => SalePolicy::class,
